@@ -1,0 +1,19 @@
+{
+    "extends": [
+        "next/core-web-vitals",
+        "plugin:storybook/recommended",
+        // "plugin:tailwindcss/recommended",
+        "prettier"
+    ],
+    "plugins": ["prettier"],
+    // "plugins": ["prettier", "tailwindcss"],
+    "rules": {
+        "prettier/prettier": "error",
+        "tailwindcss/no-custom-classname": "off"
+    },
+    "overrides": [
+        {
+            "files": ["*.stories.@(js|jsx)"]
+        }
+    ]
+}
