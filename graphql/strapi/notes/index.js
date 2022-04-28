@@ -21,10 +21,23 @@ export const NOTES_COLLECTION_QUERY = gql`
 
 export const NOTES_COLLECTIONS_QUERY = gql`
     query {
-        notesCollections {
-            id
-            slug
-            title
+        notes {
+            meta {
+                pagination {
+                    page
+                    pageCount
+                    pageSize
+                    total
+                }
+            }
+            data {
+                id
+                attributes {
+                    createdAt
+                    updatedAt
+                    title
+                }
+            }
         }
     }
 `;

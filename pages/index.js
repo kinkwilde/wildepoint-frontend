@@ -1,17 +1,17 @@
 import { useSession, signIn } from "next-auth/react";
 
-import useSWR from "swr";
+// import useSWR from "swr";
 
 import TemplateDefault from "../components/templates/default";
 
-import AtomsCode from "../components/atoms/code";
+// import AtomsCode from "../components/atoms/code";
 
 export default function PageIndex({ fallback }) {
     const { data: session } = useSession();
 
-    const { data: strapiSingle } = useSWR("/api/strapi/home", {
-        fallbackData: fallback.strapiSingle,
-    });
+    // const { data: strapiSingle } = useSWR("/api/strapi/home", {
+    //     fallbackData: fallback.strapiSingle,
+    // });
 
     return (
         <>
@@ -19,8 +19,8 @@ export default function PageIndex({ fallback }) {
                 <div className="text-center">
                     <h1>Homepage</h1>
                 </div>
-                <div>
-                    {!session && (
+                {!session && (
+                    <div>
                         <div className="text-center">
                             <p className="mr-2 uppercase">Not signed in</p>
                             <button
@@ -30,10 +30,10 @@ export default function PageIndex({ fallback }) {
                                 Sign In
                             </button>
                         </div>
-                    )}
-                </div>
+                    </div>
+                )}
             </div>
-            {strapiSingle && <AtomsCode content={strapiSingle} />}
+            {/* {strapiSingle && <AtomsCode content={strapiSingle} />} */}
         </>
     );
 }
@@ -43,17 +43,17 @@ PageIndex.getLayout = function getLayout(page) {
 };
 
 export async function getServerSideProps() {
-    const strapiSingleFetch = await fetch(
-        process.env.NEXT_PUBLIC_APP_URL + "/api/strapi/home"
-    );
+    // const strapiSingleFetch = await fetch(
+    //     process.env.NEXT_PUBLIC_APP_URL + "/api/strapi/home"
+    // );
 
-    const strapiSingleData = await strapiSingleFetch.json();
+    // const strapiSingleData = await strapiSingleFetch.json();
 
     try {
         return {
             props: {
                 fallback: {
-                    strapiSingle: strapiSingleData,
+                    // strapiSingle: strapiSingleData,
                 },
             },
         };
