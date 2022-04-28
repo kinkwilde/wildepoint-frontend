@@ -9,10 +9,6 @@ import TemplateDefault from "../../components/templates/default";
 import AtomsCode from "../../components/atoms/code";
 
 export default function PageIndex({ fallback }) {
-    const { data: strapiSingle } = useSWR("/api/strapi/notes/single", {
-        fallbackData: fallback.strapiSingle,
-    });
-
     const { data: strapiCollections } = useSWR(
         "/api/strapi/notes/collections",
         {
@@ -22,25 +18,22 @@ export default function PageIndex({ fallback }) {
 
     return (
         <div className="container">
-            {strapiSingle && (
-                <div className="my-4 text-center">
-                    {strapiSingle.notesSingle.title && (
-                        <h1>{strapiSingle.notesSingle.title}</h1>
-                    )}
-                </div>
-            )}
+            <div className="my-4 text-center">
+                <h1>Blog</h1>
+            </div>
             {strapiCollections && (
                 <ul>
-                    {strapiCollections.notesCollections.map((item) => (
+                    {strapiCollections.notes.data.map((item) => (
                         <li key={item.id}>
                             <NextLink href={`/blog/${item.slug}`}>
-                                <a className="no-underline">{item.title}</a>
+                                <a className="no-underline">
+                                    {item.attributes.title}
+                                </a>
                             </NextLink>
                         </li>
                     ))}
                 </ul>
             )}
-            {strapiSingle && <AtomsCode content={strapiSingle} />}
             {strapiCollections && <AtomsCode content={strapiCollections} />}
         </div>
     );
@@ -51,12 +44,6 @@ PageIndex.getLayout = function getLayout(page) {
 };
 
 export async function getServerSideProps(context) {
-    const strapiSingleFetch = await fetch(
-        process.env.NEXT_PUBLIC_APP_URL + "/api/strapi/notes/single"
-    );
-
-    const strapiSingleData = await strapiSingleFetch.json();
-
     const strapiCollectionsFetch = await fetch(
         process.env.NEXT_PUBLIC_APP_URL + "/api/strapi/notes/collections"
     );
@@ -76,7 +63,6 @@ export async function getServerSideProps(context) {
         return {
             props: {
                 fallback: {
-                    strapiSingle: strapiSingleData,
                     strapiCollections: strapiCollectionsData,
                 },
             },
