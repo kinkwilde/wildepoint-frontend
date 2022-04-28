@@ -25,7 +25,7 @@ export default function PageIndex({ fallback }) {
                 <ul>
                     {strapiCollections.notes.data.map((item) => (
                         <li key={item.id}>
-                            <NextLink href={`/blog/${item.slug}`}>
+                            <NextLink href={`/blog/${item.attributes.slug}`}>
                                 <a className="no-underline">
                                     {item.attributes.title}
                                 </a>

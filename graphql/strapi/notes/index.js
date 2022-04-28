@@ -26,6 +26,7 @@ export const NOTES_COLLECTIONS_QUERY = gql`
                 attributes {
                     createdAt
                     updatedAt
+                    slug
                     title
                 }
             }
