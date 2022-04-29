@@ -5,7 +5,7 @@ export default function TemplateDefault({ children }) {
     return (
         <>
             <ThemeOrganismsHeader />
-            <main className="p-12">{children}</main>
+            <main>{children}</main>
             <ThemeOrganismsFooter />
         </>
     );

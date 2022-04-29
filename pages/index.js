@@ -1,39 +1,43 @@
-import { useSession, signIn } from "next-auth/react";
+import NextImage from "next/image";
 
-// import useSWR from "swr";
+import useSWR from "swr";
 
 import TemplateDefault from "../components/templates/default";
 
-// import AtomsCode from "../components/atoms/code";
+import AtomsCode from "../components/atoms/code";
 
 export default function PageIndex({ fallback }) {
-    const { data: session } = useSession();
-
-    // const { data: strapiSingle } = useSWR("/api/strapi/home", {
-    //     fallbackData: fallback.strapiSingle,
-    // });
+    const { data: strapiSingle } = useSWR("/api/strapi/home", {
+        fallbackData: fallback.strapiSingle,
+    });
 
     return (
         <>
             <div className="container">
-                <div className="text-center">
-                    <h1>Homepage</h1>
+                <div className="my-2 md:my-8">
+                    <NextImage
+                        src={
+                            process.env.NEXT_PUBLIC_STRAPI_URL +
+                            strapiSingle.index.data.attributes.content[0].image
+                                .data.attributes.url
+                        }
+                        alt={
+                            strapiSingle.index.data.attributes.content[0].image
+                                .data.attributes.alternativeText
+                        }
+                        height={
+                            strapiSingle.index.data.attributes.content[0].image
+                                .data.attributes.height
+                        }
+                        width={
+                            strapiSingle.index.data.attributes.content[0].image
+                                .data.attributes.width
+                        }
+                        layout="responsive"
+                    />
                 </div>
-                {!session && (
-                    <div>
-                        <div className="text-center">
-                            <p className="mr-2 uppercase">Not signed in</p>
-                            <button
-                                onClick={() => signIn()}
-                                className="bg-red-300 p-4 uppercase"
-                            >
-                                Sign In
-                            </button>
-                        </div>
-                    </div>
-                )}
+                {strapiSingle && <AtomsCode content={strapiSingle} />}
             </div>
-            {/* {strapiSingle && <AtomsCode content={strapiSingle} />} */}
         </>
     );
 }
@@ -43,17 +47,17 @@ PageIndex.getLayout = function getLayout(page) {
 };
 
 export async function getServerSideProps() {
-    // const strapiSingleFetch = await fetch(
-    //     process.env.NEXT_PUBLIC_APP_URL + "/api/strapi/home"
-    // );
+    const strapiSingleFetch = await fetch(
+        process.env.NEXT_PUBLIC_APP_URL + "/api/strapi/home"
+    );
 
-    // const strapiSingleData = await strapiSingleFetch.json();
+    const strapiSingleData = await strapiSingleFetch.json();
 
     try {
         return {
             props: {
                 fallback: {
-                    // strapiSingle: strapiSingleData,
+                    strapiSingle: strapiSingleData,
                 },
             },
         };

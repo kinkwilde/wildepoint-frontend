@@ -68,13 +68,13 @@ export default function PageLogin({ csrfToken }) {
                 {(formik) => (
                     <form onSubmit={formik.handleSubmit}>
                         <div className="container">
-                            <div className="mb-4 rounded bg-blue-100 px-8 pt-6 pb-8 shadow-md">
+                            <div className="mb-4 bg-blue-100 px-8 pt-6 pb-8 shadow-md">
                                 <input
                                     name="csrfToken"
                                     type="hidden"
                                     defaultValue={csrfToken}
                                 />
-                                <div className="text-md rounded p-2 text-center text-red-400">
+                                <div className="text-md p-2 text-center text-red-400">
                                     {error}
                                 </div>
                                 <div className="mb-4">
@@ -156,7 +156,7 @@ export default function PageLogin({ csrfToken }) {
                                 <div className="flex items-center justify-center">
                                     <button
                                         type="submit"
-                                        className="w-full rounded-lg bg-green-400 p-3 text-gray-100"
+                                        className="w-full bg-green-400 p-3 text-gray-100"
                                     >
                                         {formik.isSubmitting
                                             ? "Please wait..."
