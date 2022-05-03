@@ -1,90 +1,43 @@
-import NextImage from "next/image";
-
-import { useSession, signIn } from "next-auth/react";
+import NextLink from "next/link";
 
 import useSWR from "swr";
 
-import TemplateDefault from "../components/templates/default";
+import ReactMarkdown from "react-markdown";
 
+import TemplateIndex from "../components/templates/index";
+
+import AtomsLogin from "../components/atoms/login";
 import AtomsCode from "../components/atoms/code";
 
 export default function PageIndex({ fallback }) {
-    const { data: session } = useSession();
-
     const { data: strapiSingle } = useSWR("/api/strapi/home", {
         fallbackData: fallback.strapiSingle,
     });
 
     return (
         <>
-            <div className="text-center">
-                <h1 className="uppercase">I am Wilde.</h1>
-                <p>
-                    Royston KINK Wilde was born out of desire. The illegitimate
-                    love child of London life and the Internet.
-                </p>
-                <p>
-                    A passion that began steeped in the fashion industry, slowly
-                    taking to a more dirty, sexier side until the two became
-                    one. Influenced heavily by london culture, the gaming world
-                    and pornography, KINK has found himself smack bang in the
-                    middle of a renaissance. He is the delectable fusion of
-                    future- funk and leather, shaken aggressively in a bottle
-                    for decades, just waiting for the top to explode.
-                </p>
-                <p className="text-xl font-bold">
-                    The question aint whos going to let me, its whos gonna stop
-                    me?... Who? - MK1
-                </p>
-                <p>
-                    KINK has been playing video games since as far back as he
-                    can remember. Age 8 or 9, he had started to play game such
-                    as Gobliiins, Monkey Island, Tomb Raider, Doom and Quake. By
-                    age 10, he was playing Unreal Tournament, Grim Fandango,
-                    Myst, Riven, and everyones favourite Counter-Strike.
-                </p>
-                <div className="flex justify-center space-x-8">
-                    <button className="bg-red-500 p-4">Request Access</button>
-                    <button
-                        className="bg-gray-200 p-4"
-                        onClick={() => signIn()}
-                    >
-                        Login
-                    </button>
-                </div>
-            </div>
-            {/* <div className="my-2 md:my-8">
-                <NextImage
-                    src={
-                        strapiSingle.index.data.attributes.content[0].image.data
-                            .attributes.url
-                    }
-                    alt={
-                        strapiSingle.index.data.attributes.content[0].image.data
-                            .attributes.alternativeText
-                    }
-                    height={
-                        strapiSingle.index.data.attributes.content[0].image.data
-                            .attributes.height
-                    }
-                    width={
-                        strapiSingle.index.data.attributes.content[0].image.data
-                            .attributes.width
-                    }
-                    layout="responsive"
-                />
-            </div> */}
-            {strapiSingle && (
-                <div>
-                    <AtomsCode content={strapiSingle} />
+            {strapiSingle.index.data.attributes.richtext.text && (
+                <div className="mx-auto mb-12 max-w-prose text-center">
+                    <ReactMarkdown>
+                        {strapiSingle.index.data.attributes.richtext.text}
+                    </ReactMarkdown>
                 </div>
             )}
+            <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-6 md:space-x-8">
+                <NextLink href="/request">
+                    <a className="block rounded-lg border border-blue-800 bg-blue-600 px-6 py-4 text-center uppercase text-white no-underline hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        Request Access
+                    </a>
+                </NextLink>
+                <AtomsLogin />
+            </div>
+            {strapiSingle && <AtomsCode content={strapiSingle} />}
         </>
     );
 }
 
 PageIndex.getLayout = function getLayout(page) {
-    return <TemplateDefault>{page}</TemplateDefault>;
+    return <TemplateIndex>{page}</TemplateIndex>;
 };
 
 export async function getServerSideProps() {

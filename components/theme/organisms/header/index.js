@@ -17,7 +17,7 @@ import {
 import ThemeAtomsLogo from "../../atoms/logo";
 
 export default function ThemeOrganismsHeader() {
-    const { data: session } = useSession();
+    const { data: userSession } = useSession();
 
     const [expanded, setExpanded] = useState(false);
 
@@ -44,7 +44,7 @@ export default function ThemeOrganismsHeader() {
                                         Home
                                     </a>
                                 </NextLink>
-                                {session && (
+                                {userSession && (
                                     <>
                                         <NextLink href="/blog">
                                             <a className="flex h-full items-center px-4 font-semibold uppercase no-underline hover:text-gray-500">
@@ -69,7 +69,7 @@ export default function ThemeOrganismsHeader() {
                     <div className="flex justify-end">
                         <div className="flex divide-x border-l border-r border-gray-500">
                             <div className="border-gray-500">
-                                {!session && (
+                                {!userSession && (
                                     <>
                                         <button
                                             onClick={() => signIn()}
@@ -79,7 +79,7 @@ export default function ThemeOrganismsHeader() {
                                         </button>
                                     </>
                                 )}
-                                {session && (
+                                {userSession && (
                                     <>
                                         <button
                                             onClick={() => signOut()}

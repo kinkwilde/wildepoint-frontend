@@ -5,21 +5,8 @@ export const HOME_SINGLE_QUERY = gql`
         index {
             data {
                 attributes {
-                    content {
-                        ... on ComponentHomepageHero {
-                            image {
-                                data {
-                                    attributes {
-                                        name
-                                        alternativeText
-                                        caption
-                                        url
-                                        height
-                                        width
-                                    }
-                                }
-                            }
-                        }
+                    richtext {
+                        text
                     }
                 }
             }

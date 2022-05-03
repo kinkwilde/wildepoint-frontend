@@ -4,7 +4,7 @@ import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/router";
 
-import TemplateDefault from "../components/templates/default";
+import TemplateIndex from "../components/templates/index";
 
 export default function PageLogin({ csrfToken }) {
     const router = useRouter();
@@ -45,66 +45,61 @@ export default function PageLogin({ csrfToken }) {
                 >
                     {(formik) => (
                         <form onSubmit={formik.handleSubmit}>
-                            <div className="container">
-                                <div className="grid gap-y-4 bg-gray-500 p-12">
-                                    <input
-                                        className="hidden"
-                                        type="hidden"
-                                        name="csrfToken"
-                                        defaultValue={csrfToken}
+                            <div className="grid gap-y-4">
+                                <input
+                                    className="hidden"
+                                    type="hidden"
+                                    name="csrfToken"
+                                    defaultValue={csrfToken}
+                                />
+                                {error && (
+                                    <div className="text-md p-2 text-center text-red-400">
+                                        {error}
+                                    </div>
+                                )}
+                                <div>
+                                    <label className="sr-only" htmlFor="email">
+                                        Email
+                                    </label>
+                                    <Field
+                                        className="m-0 block w-full bg-gray-100 p-4 focus:bg-white"
+                                        type="text"
+                                        name="email"
+                                        aria-label="enter your email"
+                                        aria-required="true"
                                     />
-                                    {error && (
-                                        <div className="text-md p-2 text-center text-red-400">
-                                            {error}
-                                        </div>
-                                    )}
-                                    <div>
-                                        <label
-                                            className="sr-only"
-                                            htmlFor="email"
-                                        >
-                                            Email
-                                        </label>
-                                        <Field
-                                            className="m-0 block w-full bg-gray-100 p-4 focus:bg-white"
-                                            type="text"
-                                            name="email"
-                                            aria-label="enter your email"
-                                            aria-required="true"
-                                        />
 
-                                        <div className="text-sm text-red-600">
-                                            <ErrorMessage name="email" />
-                                        </div>
+                                    <div className="text-sm text-red-600">
+                                        <ErrorMessage name="email" />
                                     </div>
-                                    <div>
-                                        <label
-                                            className="sr-only"
-                                            htmlFor="password"
-                                        >
-                                            Password
-                                        </label>
-                                        <Field
-                                            className="m-0 block w-full bg-gray-100 p-4 focus:bg-white"
-                                            type="password"
-                                            name="password"
-                                            aria-label="enter your password"
-                                            aria-required="true"
-                                        />
-                                        <div className="text-sm text-red-600">
-                                            <ErrorMessage name="password" />
-                                        </div>
+                                </div>
+                                <div>
+                                    <label
+                                        className="sr-only"
+                                        htmlFor="password"
+                                    >
+                                        Password
+                                    </label>
+                                    <Field
+                                        className="m-0 block w-full bg-gray-100 p-4 focus:bg-white"
+                                        type="password"
+                                        name="password"
+                                        aria-label="enter your password"
+                                        aria-required="true"
+                                    />
+                                    <div className="text-sm text-red-600">
+                                        <ErrorMessage name="password" />
                                     </div>
-                                    <div className="flex items-center justify-center">
-                                        <button
-                                            className="w-full bg-green-400 p-3 text-gray-100"
-                                            type="submit"
-                                        >
-                                            {formik.isSubmitting
-                                                ? "Please wait..."
-                                                : "Sign In"}
-                                        </button>
-                                    </div>
+                                </div>
+                                <div className="flex items-center justify-center">
+                                    <button
+                                        className="w-full bg-green-400 p-3 text-gray-100"
+                                        type="submit"
+                                    >
+                                        {formik.isSubmitting
+                                            ? "Please wait..."
+                                            : "Sign In"}
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -116,7 +111,7 @@ export default function PageLogin({ csrfToken }) {
 }
 
 PageLogin.getLayout = function getLayout(page) {
-    return <TemplateDefault>{page}</TemplateDefault>;
+    return <TemplateIndex>{page}</TemplateIndex>;
 };
 
 export async function getServerSideProps(context) {

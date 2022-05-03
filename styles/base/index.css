@@ -52,14 +52,6 @@
         @apply text-xl;
     }
 
-    .intro {
-        @apply text-lg;
-
-        &--red {
-            @apply text-red-500;
-        }
-    }
-
     p {
         @apply mb-4 text-base font-light leading-normal;
     }
