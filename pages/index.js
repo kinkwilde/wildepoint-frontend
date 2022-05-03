@@ -17,7 +17,6 @@ export default function PageIndex({ fallback }) {
                 <div className="my-2 md:my-8">
                     <NextImage
                         src={
-                            process.env.NEXT_PUBLIC_STRAPI_URL +
                             strapiSingle.index.data.attributes.content[0].image
                                 .data.attributes.url
                         }
