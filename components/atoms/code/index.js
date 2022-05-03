@@ -4,7 +4,7 @@ function CodeWrap({ children }) {
     return <pre className="whitespace-pre-wrap">{children}</pre>;
 }
 
-function CodeMessage(content, error) {
+function codeMessage(content, error) {
     if (error) {
         <CodeWrap>{JSON.stringify(error, null, 2)}</CodeWrap>;
     }
