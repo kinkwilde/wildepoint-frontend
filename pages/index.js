@@ -20,8 +20,8 @@ export default function PageIndex({ fallback }) {
             <div className="text-center">
                 <h1 className="uppercase">I am Wilde.</h1>
                 <p>
-                    Royston 'KINK' Wilde was born out of desire. The
-                    illegitimate love child of London life and the Internet.
+                    Royston KINK Wilde was born out of desire. The illegitimate
+                    love child of London life and the Internet.
                 </p>
                 <p>
                     A passion that began steeped in the fashion industry, slowly
@@ -33,8 +33,8 @@ export default function PageIndex({ fallback }) {
                     for decades, just waiting for the top to explode.
                 </p>
                 <p className="text-xl font-bold">
-                    "The question ain't who's going to let me, it's who's gonna
-                    stop me?... Who?" - MK1
+                    The question aint whos going to let me, its whos gonna stop
+                    me?... Who? - MK1
                 </p>
                 <p>
                     KINK has been playing video games since as far back as he
