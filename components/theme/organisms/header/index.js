@@ -40,26 +40,26 @@ export default function ThemeOrganismsHeader() {
                         <div className="hidden border-gray-500 px-4 md:block">
                             <nav className="flex h-full items-center">
                                 <NextLink href="/">
-                                    <a className="flex h-full items-center px-4 font-semibold uppercase no-underline hover:text-gray-500">
+                                    <a className="flex h-full items-center px-4 uppercase no-underline hover:text-gray-500">
                                         Home
                                     </a>
                                 </NextLink>
                                 {userSession && (
                                     <>
                                         <NextLink href="/blog">
-                                            <a className="flex h-full items-center px-4 font-semibold uppercase no-underline hover:text-gray-500">
+                                            <a className="flex h-full items-center px-4 uppercase no-underline hover:text-gray-500">
                                                 Blog
                                             </a>
                                         </NextLink>
                                         <NextLink href="/">
-                                            <a className="flex h-full items-center px-4 font-semibold uppercase no-underline hover:text-gray-500">
+                                            <a className="flex h-full items-center px-4 uppercase no-underline hover:text-gray-500">
                                                 Diary
                                             </a>
                                         </NextLink>
                                     </>
                                 )}
                                 <NextLink href="/">
-                                    <a className="flex h-full items-center px-4 font-semibold uppercase no-underline hover:text-gray-500">
+                                    <a className="flex h-full items-center px-4 uppercase no-underline hover:text-gray-500">
                                         Contact
                                     </a>
                                 </NextLink>

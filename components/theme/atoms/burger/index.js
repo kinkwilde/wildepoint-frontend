@@ -20,9 +20,11 @@ export default function ThemeAtomsBurger() {
             <div>
                 <button
                     onClick={mmExpand}
-                    className="flex items-center space-x-2"
+                    className="flex items-center space-x-2 p-2"
                 >
-                    <span className="text-sm uppercase">Open Menu</span>
+                    <span className="font-thin font-montserrat text-sm uppercase">
+                        Open Menu
+                    </span>
                     <FiMenu className="text-3xl" />
                 </button>
             </div>
@@ -33,9 +35,14 @@ export default function ThemeAtomsBurger() {
                             <FiX className="text-3xl" />
                         </button>
                         <p>Menu</p>
-                        <NextLink href="/">
-                            <a>Homepage</a>
-                        </NextLink>
+                        <nav className="flex flex-col space-y-4">
+                            <NextLink href="/">
+                                <a>Homepage</a>
+                            </NextLink>
+                            <NextLink href="/blog">
+                                <a>Blog</a>
+                            </NextLink>
+                        </nav>
                     </div>
                 </div>
             )}

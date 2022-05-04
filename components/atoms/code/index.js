@@ -1,7 +1,11 @@
 import { FiX, FiMinus, FiMaximize2 } from "react-icons/fi";
 
 function CodeWrap({ children }) {
-    return <pre className="whitespace-pre-wrap">{children}</pre>;
+    return (
+        <pre className="whitespace-pre-wrap font-firacode text-base">
+            {children}
+        </pre>
+    );
 }
 
 function codeMessage(content, error) {
@@ -20,7 +24,7 @@ export default function AtomsCode({ content, error }) {
     const message = codeMessage(content, error);
 
     return (
-        <div data-testid="code" className="mt-12 xl:shadow-2xl">
+        <div data-testid="code">
             <div className="flex rounded-t-lg border border-b border-gray-900 bg-gray-800 py-3 px-4">
                 <div className="mr-2 flex min-h-[1rem] min-w-[1rem] items-center justify-center rounded-full bg-red-500">
                     <FiX className="text-xs" />
@@ -32,7 +36,7 @@ export default function AtomsCode({ content, error }) {
                     <FiMaximize2 className="text-xs" />
                 </div>
             </div>
-            <code className="block rounded-b-lg bg-gray-700 p-4 text-base text-white shadow-inner">
+            <code className="block rounded-b-lg bg-gray-700 p-4 text-white shadow-inner">
                 {message}
             </code>
         </div>

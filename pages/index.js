@@ -1,5 +1,7 @@
 import NextLink from "next/link";
 
+import { useSession } from "next-auth/react";
+
 import useSWR from "swr";
 
 import ReactMarkdown from "react-markdown";
@@ -10,28 +12,34 @@ import AtomsLogin from "../components/atoms/login";
 import AtomsCode from "../components/atoms/code";
 
 export default function PageIndex({ fallback }) {
+    const { data: userSession } = useSession();
+
     const { data: strapiSingle } = useSWR("/api/strapi/home", {
         fallbackData: fallback.strapiSingle,
     });
 
     return (
         <>
-            {strapiSingle.index.data.attributes.richtext.text && (
+            {strapiSingle.index.data != null && (
                 <div className="mx-auto mb-12 max-w-prose text-center">
                     <ReactMarkdown>
                         {strapiSingle.index.data.attributes.richtext.text}
                     </ReactMarkdown>
                 </div>
             )}
-            <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-6 md:space-x-8">
-                <NextLink href="/request">
-                    <a className="block rounded-lg border border-blue-800 bg-blue-600 px-6 py-4 text-center uppercase text-white no-underline hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">
-                        Request Access
-                    </a>
-                </NextLink>
+            <div className="my-12 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-6 md:space-x-8">
+                {!userSession && (
+                    <NextLink href="/request">
+                        <a className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-montserrat font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800">
+                            Request Access
+                        </a>
+                    </NextLink>
+                )}
                 <AtomsLogin />
             </div>
-            {strapiSingle && <AtomsCode content={strapiSingle} />}
+            {strapiSingle && (
+                <AtomsCode className="mt-12" content={strapiSingle} />
+            )}
         </>
     );
 }

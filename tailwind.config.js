@@ -11,7 +11,19 @@ module.exports = {
                 xl: "6rem",
             },
         },
-        extend: {},
+        fontWeight: {
+            light: 300,
+            normal: 400,
+            bold: 700,
+            black: 900,
+        },
+        extend: {
+            fontFamily: {
+                merriweather: ["Merriweather", "serif"],
+                montserrat: ["Montserrat", "sans-serif"],
+                firacode: ["Fira Code", "monospace"],
+            },
+        },
     },
     plugins: [],
 };

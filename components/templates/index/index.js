@@ -1,5 +1,5 @@
 import ThemeOrganismsHeaderSplash from "../../theme/organisms/header/splash";
-// import ThemeOrganismsFooter from "../../theme/organisms/footer";
+import ThemeOrganismsFooterSplash from "../../theme/organisms/footer/splash";
 
 export default function TemplateIndex({ children }) {
     return (
@@ -9,7 +9,7 @@ export default function TemplateIndex({ children }) {
                     <div className="flex flex-col">
                         <ThemeOrganismsHeaderSplash />
                         <main className="grow">{children}</main>
-                        {/* <ThemeOrganismsFooter /> */}
+                        <ThemeOrganismsFooterSplash />
                     </div>
                 </div>
             </div>

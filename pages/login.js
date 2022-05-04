@@ -1,18 +1,27 @@
 import { useState } from "react";
-import { signIn, getCsrfToken } from "next-auth/react";
-import { Formik, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+
 import { useRouter } from "next/router";
+
+import { signIn, getCsrfToken } from "next-auth/react";
+
+import { Formik, Field, ErrorMessage } from "formik";
+
+import * as Yup from "yup";
 
 import TemplateIndex from "../components/templates/index";
 
 export default function PageLogin({ csrfToken }) {
     const router = useRouter();
+
     const [error, setError] = useState();
 
     return (
         <>
-            <div className="my-2 md:my-8">
+            <div className="mx-auto mb-12 max-w-prose text-center">
+                <h1 className="uppercase">Login</h1>
+                <p>Please fill out form to access the website.</p>
+            </div>
+            <div>
                 <Formik
                     initialValues={{ email: "", password: "" }}
                     validationSchema={Yup.object({
@@ -45,63 +54,67 @@ export default function PageLogin({ csrfToken }) {
                 >
                     {(formik) => (
                         <form onSubmit={formik.handleSubmit}>
-                            <div className="grid gap-y-4">
-                                <input
-                                    className="hidden"
-                                    type="hidden"
-                                    name="csrfToken"
-                                    defaultValue={csrfToken}
-                                />
+                            <div className="grid gap-y-8">
                                 {error && (
                                     <div className="text-md p-2 text-center text-red-400">
                                         {error}
                                     </div>
                                 )}
-                                <div>
-                                    <label className="sr-only" htmlFor="email">
-                                        Email
-                                    </label>
+                                <div className="group relative">
                                     <Field
-                                        className="m-0 block w-full bg-gray-100 p-4 focus:bg-white"
+                                        className="peer block w-full appearance-none border-0 border-b-2 border-black bg-transparent py-3 px-0 text-base focus:border-blue-600 focus:outline-none focus:ring-0"
                                         type="text"
                                         name="email"
                                         aria-label="enter your email"
                                         aria-required="true"
+                                        placeholder=" "
                                     />
-
-                                    <div className="text-sm text-red-600">
+                                    <label
+                                        htmlFor="email"
+                                        className="absolute top-3 -z-10 origin-[0] -translate-y-8 scale-75 transform font-montserrat text-sm uppercase duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-blue-600"
+                                    >
+                                        Email address
+                                    </label>
+                                    <div className="mt-4 font-montserrat text-sm uppercase text-red-600">
                                         <ErrorMessage name="email" />
                                     </div>
                                 </div>
-                                <div>
-                                    <label
-                                        className="sr-only"
-                                        htmlFor="password"
-                                    >
-                                        Password
-                                    </label>
+                                <div className="group relative">
                                     <Field
-                                        className="m-0 block w-full bg-gray-100 p-4 focus:bg-white"
+                                        className="peer block w-full appearance-none border-0 border-b-2 border-black bg-transparent py-3 px-0 text-base focus:border-blue-600 focus:outline-none focus:ring-0"
                                         type="password"
                                         name="password"
                                         aria-label="enter your password"
                                         aria-required="true"
+                                        placeholder=" "
                                     />
-                                    <div className="text-sm text-red-600">
+                                    <label
+                                        htmlFor="password"
+                                        className="absolute top-3 -z-10 origin-[0] -translate-y-8 scale-75 transform font-montserrat text-sm uppercase duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-blue-600"
+                                    >
+                                        Password
+                                    </label>
+                                    <div className="mt-4 font-montserrat text-sm uppercase text-red-600">
                                         <ErrorMessage name="password" />
                                     </div>
                                 </div>
-                                <div className="flex items-center justify-center">
-                                    <button
-                                        className="w-full bg-green-400 p-3 text-gray-100"
-                                        type="submit"
-                                    >
-                                        {formik.isSubmitting
-                                            ? "Please wait..."
-                                            : "Sign In"}
-                                    </button>
-                                </div>
                             </div>
+                            <div className="mt-12 flex items-center justify-center">
+                                <button
+                                    className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-montserrat font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800"
+                                    type="submit"
+                                >
+                                    {formik.isSubmitting
+                                        ? "Processing"
+                                        : "Sign In"}
+                                </button>
+                            </div>
+                            <input
+                                className="hidden"
+                                type="hidden"
+                                name="csrfToken"
+                                defaultValue={csrfToken}
+                            />
                         </form>
                     )}
                 </Formik>
