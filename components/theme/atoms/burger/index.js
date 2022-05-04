@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import NextLink from "next/link";
 
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMoreVertical, FiX } from "react-icons/fi";
 
 export default function ThemeAtomsBurger() {
     const [expanded, setExpanded] = useState(false);
@@ -20,12 +20,12 @@ export default function ThemeAtomsBurger() {
             <div>
                 <button
                     onClick={mmExpand}
-                    className="flex items-center space-x-2 p-2"
+                    className="group flex items-center space-x-0 rounded-lg py-2 pl-3 focus:outline-none focus:ring-4 focus:ring-blue-300"
                 >
-                    <span className="font-thin font-montserrat text-sm uppercase">
+                    <span className="font-montserrat font-light uppercase lg:group-hover:text-red-600">
                         Open Menu
                     </span>
-                    <FiMenu className="text-3xl" />
+                    <FiMoreVertical className="text-3xl lg:group-hover:text-red-600" />
                 </button>
             </div>
             {expanded && (

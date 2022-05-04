@@ -1,3 +1,4 @@
+import NextImage from "next/image";
 import NextLink from "next/link";
 
 import { useSession } from "next-auth/react";
@@ -21,21 +22,59 @@ export default function PageIndex({ fallback }) {
     return (
         <>
             {strapiSingle.index.data != null && (
-                <div className="mx-auto mb-12 max-w-prose text-center">
-                    <ReactMarkdown>
-                        {strapiSingle.index.data.attributes.richtext.text}
-                    </ReactMarkdown>
-                </div>
+                <>
+                    <div className="mx-auto mb-12 max-w-prose text-center">
+                        <h1>{strapiSingle.index.data.attributes.title}</h1>
+                        <p>{strapiSingle.index.data.attributes.intro}</p>
+                    </div>
+                    {strapiSingle.index.data.attributes.hero.image.data !=
+                        null && (
+                        <div className="mb-12">
+                            <NextImage
+                                src={
+                                    strapiSingle.index.data.attributes.hero
+                                        .image.data.attributes.url
+                                }
+                                alt={
+                                    strapiSingle.index.data.attributes.hero
+                                        .image.data.attributes.alternativeText
+                                }
+                                height={
+                                    strapiSingle.index.data.attributes.hero
+                                        .image.data.attributes.height
+                                }
+                                width={
+                                    strapiSingle.index.data.attributes.hero
+                                        .image.data.attributes.width
+                                }
+                                layout="responsive"
+                            />
+                        </div>
+                    )}
+                    <div className="mx-auto mb-12 max-w-prose text-center">
+                        <ReactMarkdown>
+                            {strapiSingle.index.data.attributes.richtext.text}
+                        </ReactMarkdown>
+                    </div>
+                </>
             )}
-            <div className="my-12 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-6 md:space-x-8">
-                {!userSession && (
-                    <NextLink href="/request">
-                        <a className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-montserrat font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800">
-                            Request Access
-                        </a>
-                    </NextLink>
-                )}
-                <AtomsLogin />
+            <div className="my-24">
+                <div className="mb-8 text-center">
+                    <h4 className="mb-8 text-center uppercase">
+                        This is where hell starts and the fun begins
+                    </h4>
+                    <p className="mb-0">Make your own choice in life.</p>
+                </div>
+                <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-6 md:space-x-8">
+                    {!userSession && (
+                        <NextLink href="/request">
+                            <a className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-montserrat font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800">
+                                Request Access
+                            </a>
+                        </NextLink>
+                    )}
+                    <AtomsLogin />
+                </div>
             </div>
             {strapiSingle && (
                 <AtomsCode className="mt-12" content={strapiSingle} />
