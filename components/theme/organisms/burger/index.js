@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import NextLink from "next/link";
+
+import { useRouter } from "next/router";
 
 import { FiMoreVertical, FiX } from "react-icons/fi";
 
 export default function ThemeAtomsBurger() {
+    const { pathname } = useRouter();
+
     const [expanded, setExpanded] = useState(false);
 
     function mmExpand() {
@@ -14,6 +18,10 @@ export default function ThemeAtomsBurger() {
     function mmClose() {
         setExpanded(false);
     }
+
+    useEffect(() => {
+        mmClose();
+    }, [pathname]);
 
     return (
         <>

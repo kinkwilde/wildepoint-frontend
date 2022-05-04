@@ -1,6 +1,6 @@
 import { FiGithub, FiDatabase } from "react-icons/fi";
 
-import ThemeAtomsBurger from "../../../atoms/burger";
+import ThemeAtomsBurger from "../../../organisms/burger";
 
 export default function ThemeOrganismsHeaderSplash() {
     return (

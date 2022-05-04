@@ -10,6 +10,8 @@ import * as Yup from "yup";
 
 import TemplateIndex from "../components/templates/index";
 
+import SVGSpinner from "../components/svgs/spinner";
+
 export default function PageLogin({ csrfToken }) {
     const router = useRouter();
 
@@ -56,7 +58,13 @@ export default function PageLogin({ csrfToken }) {
                         <form onSubmit={formik.handleSubmit}>
                             <div className="grid gap-y-8">
                                 {error && (
-                                    <div className="text-md p-2 text-center text-red-400">
+                                    <div
+                                        className="mb-4 rounded-lg bg-red-100 p-4 text-sm text-red-700"
+                                        role="alert"
+                                    >
+                                        <span className="font-montserrat font-bold uppercase">
+                                            Error:
+                                        </span>{" "}
                                         {error}
                                     </div>
                                 )}
@@ -104,9 +112,11 @@ export default function PageLogin({ csrfToken }) {
                                     className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-montserrat font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800"
                                     type="submit"
                                 >
-                                    {formik.isSubmitting
-                                        ? "Processing"
-                                        : "Sign In"}
+                                    {formik.isSubmitting ? (
+                                        <SVGSpinner />
+                                    ) : (
+                                        "Sign In"
+                                    )}
                                 </button>
                             </div>
                             <input
