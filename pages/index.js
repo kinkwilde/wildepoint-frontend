@@ -9,8 +9,9 @@ import ReactMarkdown from "react-markdown";
 
 import TemplateIndex from "../components/templates/index";
 
-import AtomsLogin from "../components/atoms/login";
+import AtomsAccordion from "../components/atoms/accordion";
 import AtomsCode from "../components/atoms/code";
+import AtomsLogin from "../components/atoms/login";
 
 export default function PageIndex({ fallback }) {
     const { data: userSession } = useSession();
@@ -58,6 +59,7 @@ export default function PageIndex({ fallback }) {
                     </div>
                 </>
             )}
+            <AtomsAccordion />
             <div className="my-24">
                 <div className="mb-8 text-center">
                     <h4 className="mb-8 text-center uppercase">

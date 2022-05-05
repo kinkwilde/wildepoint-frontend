@@ -9,7 +9,7 @@ import { FiMoreVertical, FiX } from "react-icons/fi";
 export default function ThemeAtomsBurger() {
     const { pathname } = useRouter();
 
-    const [expanded, setExpanded] = useState(false);
+    const [isExpanded, setExpanded] = useState(false);
 
     function mmExpand() {
         setExpanded(true);
@@ -36,7 +36,7 @@ export default function ThemeAtomsBurger() {
                     <FiMoreVertical className="text-3xl lg:group-hover:text-red-600" />
                 </button>
             </div>
-            {expanded && (
+            {isExpanded && (
                 <div className="fixed top-0 left-0 z-30 flex h-full w-full items-center justify-center bg-red-500">
                     <div>
                         <button onClick={mmClose} className="p-3">
