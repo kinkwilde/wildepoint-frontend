@@ -1,11 +1,4 @@
-/*
-
-* Home
-- version (0.0.1)
-
-"pages/index.js"
-
-*/
+import { Cloudinary } from "@cloudinary/url-gen";
 
 export const generateCanonicalUrl = (slug) => {
     const base = process.env.NEXT_PUBLIC_APP_URL;
@@ -18,3 +11,9 @@ export const generateCanonicalUrl = (slug) => {
         return base + "/" + slug;
     }
 };
+
+export const cld = new Cloudinary({
+    cloud: {
+        cloudName: process.env.NEXT_PUBLIC_CLOUDNAME,
+    },
+});

@@ -7,7 +7,8 @@ import useSWR from "swr";
 import ReactMarkdown from "react-markdown";
 
 import { AdvancedImage } from "@cloudinary/react";
-import { CloudinaryImage, CloudConfig, URLConfig } from "@cloudinary/url-gen";
+
+import { cld } from "../helpers/url";
 
 import TemplateIndex from "../components/templates/index";
 
@@ -24,23 +25,14 @@ export default function PageIndex({ fallback }) {
         fallbackData: fallback.strapiSingle,
     });
 
-    let cloudConfig = new CloudConfig({
-        cloudName: process.env.NEXT_PUBLIC_CLOUDNAME,
-    });
-    let urlConfig = new URLConfig({ secure: true });
-
-    let cloudImage = new CloudinaryImage(
-        strapiSingle.index.data.attributes.hero.image.data.attributes.name.replace(
-            /\.[^/\\.]+$/,
-            ""
-        ),
-        cloudConfig,
-        urlConfig
+    const myImage = cld.image(
+        strapiSingle.index.data.attributes.hero.image.data.attributes.url
+            .split("/")
+            .pop()
+            .replace(/\.[^/.]+$/, "")
     );
 
-    console.log(cloudImage.setVersion(1651793253));
-
-    const cloudURL = cloudImage.setVersion(1651793253);
+    console.log(myImage);
 
     return (
         <>
@@ -55,7 +47,7 @@ export default function PageIndex({ fallback }) {
                     {strapiSingle.index.data.attributes.hero.image.data !=
                         null && (
                         <div className="mb-12">
-                            <AdvancedImage cldImg={cloudURL} />
+                            <AdvancedImage cldImg={myImage} />
                         </div>
                     )}
                     {strapiSingle.index.data.attributes.richtext.text !=
