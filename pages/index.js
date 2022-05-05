@@ -1,4 +1,3 @@
-import NextImage from "next/image";
 import NextLink from "next/link";
 
 import { useSession } from "next-auth/react";
@@ -7,11 +6,16 @@ import useSWR from "swr";
 
 import ReactMarkdown from "react-markdown";
 
+import { AdvancedImage } from "@cloudinary/react";
+import { CloudinaryImage, CloudConfig, URLConfig } from "@cloudinary/url-gen";
+
 import TemplateIndex from "../components/templates/index";
 
 import AtomsAccordion from "../components/atoms/accordion";
 import AtomsCode from "../components/atoms/code";
 import AtomsLogin from "../components/atoms/login";
+
+import { FiInstagram, FiTwitch, FiTwitter } from "react-icons/fi";
 
 export default function PageIndex({ fallback }) {
     const { data: userSession } = useSession();
@@ -20,50 +24,83 @@ export default function PageIndex({ fallback }) {
         fallbackData: fallback.strapiSingle,
     });
 
+    let cloudConfig = new CloudConfig({
+        cloudName: process.env.NEXT_PUBLIC_CLOUDNAME,
+    });
+    let urlConfig = new URLConfig({ secure: true });
+
+    let cloudImage = new CloudinaryImage(
+        strapiSingle.index.data.attributes.hero.image.data.attributes.name.replace(
+            /\.[^/\\.]+$/,
+            ""
+        ),
+        cloudConfig,
+        urlConfig
+    );
+
+    console.log(cloudImage.setVersion(1651793253));
+
+    const cloudURL = cloudImage.setVersion(1651793253);
+
     return (
         <>
             {strapiSingle.index.data != null && (
                 <>
                     <div className="mx-auto mb-12 max-w-prose text-center">
                         <h1>{strapiSingle.index.data.attributes.title}</h1>
-                        <p>{strapiSingle.index.data.attributes.intro}</p>
+                        <p className="text-lg">
+                            {strapiSingle.index.data.attributes.intro}
+                        </p>
                     </div>
                     {strapiSingle.index.data.attributes.hero.image.data !=
                         null && (
                         <div className="mb-12">
-                            <NextImage
-                                src={
-                                    strapiSingle.index.data.attributes.hero
-                                        .image.data.attributes.url
-                                }
-                                alt={
-                                    strapiSingle.index.data.attributes.hero
-                                        .image.data.attributes.alternativeText
-                                }
-                                height={
-                                    strapiSingle.index.data.attributes.hero
-                                        .image.data.attributes.height
-                                }
-                                width={
-                                    strapiSingle.index.data.attributes.hero
-                                        .image.data.attributes.width
-                                }
-                                layout="responsive"
-                            />
+                            <AdvancedImage cldImg={cloudURL} />
                         </div>
                     )}
-                    <div className="mx-auto mb-12 max-w-prose text-center">
-                        <ReactMarkdown>
-                            {strapiSingle.index.data.attributes.richtext.text}
-                        </ReactMarkdown>
-                    </div>
+                    {strapiSingle.index.data.attributes.richtext.text !=
+                        null && (
+                        <div className="mx-auto mb-12 max-w-prose text-center">
+                            <ReactMarkdown>
+                                {
+                                    strapiSingle.index.data.attributes.richtext
+                                        .text
+                                }
+                            </ReactMarkdown>
+                        </div>
+                    )}
                 </>
             )}
-            <AtomsAccordion />
+            <div className="my-24">
+                <div className="mx-auto max-w-prose text-center">
+                    <h3 className="uppercase">Find Me On Social Media</h3>
+                    <p>
+                        I have a very limited social media presence, and the
+                        places you can find me are listed below.
+                    </p>
+                </div>
+                <nav className="flex justify-center space-x-4">
+                    <NextLink href="/">
+                        <a>
+                            <FiInstagram />
+                        </a>
+                    </NextLink>
+                    <NextLink href="/">
+                        <a>
+                            <FiTwitch />
+                        </a>
+                    </NextLink>
+                    <NextLink href="/">
+                        <a>
+                            <FiTwitter />
+                        </a>
+                    </NextLink>
+                </nav>
+            </div>
             <div className="my-24">
                 <div className="mb-8 text-center">
-                    <h4 className="mb-8 text-center uppercase">
-                        This is where hell starts and the fun begins
+                    <h4 className="mb-4 text-center uppercase">
+                        This is where hell starts
                     </h4>
                     <p className="mb-0">Make your own choice in life.</p>
                 </div>
@@ -76,6 +113,9 @@ export default function PageIndex({ fallback }) {
                         </NextLink>
                     )}
                     <AtomsLogin />
+                </div>
+                <div className="mt-12">
+                    <AtomsAccordion />
                 </div>
             </div>
             {strapiSingle && (

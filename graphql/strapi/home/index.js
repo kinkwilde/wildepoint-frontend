@@ -12,11 +12,14 @@ export const HOME_SINGLE_QUERY = gql`
                         image {
                             data {
                                 attributes {
+                                    name
                                     alternativeText
                                     caption
                                     height
-                                    url
                                     width
+                                    url
+                                    provider
+                                    provider_metadata
                                 }
                             }
                         }
