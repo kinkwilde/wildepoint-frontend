@@ -2,6 +2,7 @@ import { useEffect } from "react";
 
 import NextHead from "next/head";
 import NextRouter from "next/router";
+import NextScript from "next/script";
 
 import { DefaultSeo } from "next-seo";
 
@@ -13,6 +14,8 @@ import NProgress from "nprogress";
 
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
+
+import * as ga from "../helpers/ga";
 
 import "../styles/index.css";
 
@@ -36,6 +39,18 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
 
     const getLayout = Component.getLayout || ((page) => page);
 
+    useEffect(() => {
+        const handleRouteChange = (url) => {
+            ga.pageview(url);
+        };
+
+        NextRouter.events.on("routeChangeComplete", handleRouteChange);
+
+        return () => {
+            NextRouter.events.off("routeChangeComplete", handleRouteChange);
+        };
+    }, []);
+
     return (
         <SessionProvider session={session}>
             <SWRConfig
@@ -55,6 +70,22 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
                         content="width=device-width, initial-scale=1"
                     />
                 </NextHead>
+
+                <NextScript
+                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+                    strategy="lazyOnload"
+                />
+
+                <NextScript id="gAnalytics" strategy="lazyOnload">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                        page_path: window.location.pathname,
+                        });
+                    `}
+                </NextScript>
 
                 <DefaultSeo
                     title="next-wildepoint"
