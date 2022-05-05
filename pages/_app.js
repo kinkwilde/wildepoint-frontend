@@ -15,7 +15,7 @@ import NProgress from "nprogress";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 
-import * as ga from "../helpers/ga";
+import * as ga from "../helpers/gtag";
 
 import "../styles/index.css";
 
@@ -69,23 +69,28 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
                         name="viewport"
                         content="width=device-width, initial-scale=1"
                     />
+
+                    <NextScript
+                        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+                        strategy="afterInteractive"
+                    />
+
+                    <NextScript id="gAnalytics" strategy="afterInteractive">
+                        {`
+                            window.dataLayer = window.dataLayer || [];
+
+                            function gtag() {
+                                dataLayer.push(arguments);
+                            }
+
+                            gtag('js', new Date());
+
+                            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                                page_path: window.location.pathname,
+                            });
+                        `}
+                    </NextScript>
                 </NextHead>
-
-                <NextScript
-                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-                    strategy="lazyOnload"
-                />
-
-                <NextScript id="gAnalytics" strategy="lazyOnload">
-                    {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                        page_path: window.location.pathname,
-                        });
-                    `}
-                </NextScript>
 
                 <DefaultSeo
                     title="next-wildepoint"
