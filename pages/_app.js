@@ -69,27 +69,6 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
                         name="viewport"
                         content="width=device-width, initial-scale=1"
                     />
-
-                    <NextScript
-                        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-                        strategy="afterInteractive"
-                    />
-
-                    <NextScript id="gAnalytics" strategy="afterInteractive">
-                        {`
-                            window.dataLayer = window.dataLayer || [];
-
-                            function gtag() {
-                                dataLayer.push(arguments);
-                            }
-
-                            gtag('js', new Date());
-
-                            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                                page_path: window.location.pathname,
-                            });
-                        `}
-                    </NextScript>
                 </NextHead>
 
                 <DefaultSeo
@@ -100,6 +79,27 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
                         site_name: "next-wildepoint",
                     }}
                 />
+
+                <NextScript
+                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+                    strategy="afterInteractive"
+                />
+
+                <NextScript id="gAnalytics" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+
+                        function gtag() {
+                            dataLayer.push(arguments);
+                        }
+
+                        gtag('js', new Date());
+
+                        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                            page_path: window.location.pathname,
+                        });
+                    `}
+                </NextScript>
 
                 {getLayout(<Component {...pageProps} />)}
             </SWRConfig>
