@@ -11,12 +11,12 @@ export default function ThemeOrganismsFooterSplash() {
                 </p>
             </div>
             <div className="flex flex-col space-y-4 text-center sm:flex-row sm:space-y-0 sm:space-x-4">
-                <NextLink href="/">
+                <NextLink href="/terms">
                     <a className="font-montserrat text-sm uppercase text-gray-600">
                         Terms &amp; Conditions
                     </a>
                 </NextLink>
-                <NextLink href="/">
+                <NextLink href="/privacy">
                     <a className="font-montserrat text-sm uppercase text-gray-600">
                         Privacy Policy
                     </a>
