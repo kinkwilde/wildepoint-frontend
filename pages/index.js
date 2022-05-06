@@ -32,8 +32,6 @@ export default function PageIndex({ fallback }) {
             .replace(/\.[^/.]+$/, "")
     );
 
-    console.log(myImage);
-
     return (
         <>
             {strapiSingle.index.data != null && (
