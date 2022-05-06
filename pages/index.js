@@ -1,4 +1,7 @@
+import NextHead from "next/head";
 import NextLink from "next/link";
+
+import { NextSeo, SocialProfileJsonLd } from "next-seo";
 
 import { useSession } from "next-auth/react";
 
@@ -8,6 +11,8 @@ import ReactMarkdown from "react-markdown";
 
 import { AdvancedImage } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
+
+import { scale } from "@cloudinary/url-gen/actions/resize";
 
 import { generateCloudURL } from "../helpers/url";
 
@@ -32,31 +37,67 @@ export default function PageIndex({ fallback }) {
         },
     });
 
-    const heroImage = cloudinaryConnection.image(
-        generateCloudURL(
-            strapiSingle.index.data.attributes.hero.image.data.attributes.url
+    const heroImage = cloudinaryConnection
+        .image(
+            generateCloudURL(
+                strapiSingle.index.data.attributes.hero.image.data.attributes
+                    .url
+            )
         )
-    );
+        .resize(scale().width(1000))
+        .format("auto")
+        .quality("auto");
 
     return (
         <>
+            <NextHead>
+                <link
+                    rel="preload"
+                    href={process.env.NEXT_PUBLIC_APP_URL + "/api/strapi/home"}
+                    as="fetch"
+                    crossOrigin="anonymous"
+                ></link>
+            </NextHead>
+            <NextSeo
+                title="Homepage"
+                description="Description"
+                canonical="https://wildepoint.com"
+                noindex="false"
+                nofollow="falsee"
+                openGraph={{
+                    url: "https://wildepoint.com",
+                    title: "Homepage",
+                    description: "Description",
+                }}
+            />
+            <SocialProfileJsonLd
+                type={process.env.NEXT_PUBLIC_SCHEMA_SITE_TYPE}
+                name={process.env.NEXT_PUBLIC_SCHEMA_SITE_NAME}
+                url={process.env.NEXT_PUBLIC_APP_URL}
+                sameAs={[
+                    process.env.NEXT_PUBLIC_SOCIAL_TWITCH_URL,
+                    process.env.NEXT_PUBLIC_SOCIAL_TWITTER_URL,
+                ]}
+            />
             {strapiSingle.index.data != null && (
                 <>
-                    <div className="mx-auto mb-12 max-w-prose text-center">
-                        <h1>{strapiSingle.index.data.attributes.title}</h1>
+                    <div className="mx-auto mb-8 max-w-prose text-center md:mb-12">
+                        <h1 className="mb-4">
+                            {strapiSingle.index.data.attributes.title}
+                        </h1>
                         <p className="text-lg">
                             {strapiSingle.index.data.attributes.intro}
                         </p>
                     </div>
                     {strapiSingle.index.data.attributes.hero.image.data !=
                         null && (
-                        <div className="mb-12">
+                        <div className="my-12 lg:my-24">
                             <AdvancedImage cldImg={heroImage} />
                         </div>
                     )}
                     {strapiSingle.index.data.attributes.richtext.text !=
                         null && (
-                        <div className="mx-auto mb-12 max-w-prose text-center">
+                        <div className="mx-auto my-12 max-w-prose text-center lg:my-24">
                             <ReactMarkdown>
                                 {
                                     strapiSingle.index.data.attributes.richtext
@@ -67,38 +108,38 @@ export default function PageIndex({ fallback }) {
                     )}
                 </>
             )}
-            <div className="my-24">
-                <div className="mx-auto max-w-prose text-center">
+            <div className="my-12 lg:my-24">
+                <div className="mx-auto mb-8 max-w-prose text-center">
                     <h3 className="uppercase">Find Me On Social Media</h3>
                     <p>
                         I have a very limited social media presence, and the
                         places you can find me are listed below.
                     </p>
                 </div>
-                <nav className="flex justify-center space-x-4">
+                <nav className="flex justify-center space-x-8">
                     <NextLink href="/">
-                        <a>
+                        <a className="text-3xl">
                             <FiInstagram />
                         </a>
                     </NextLink>
                     <NextLink href="/">
-                        <a>
+                        <a className="text-3xl">
                             <FiTwitch />
                         </a>
                     </NextLink>
                     <NextLink href="/">
-                        <a>
+                        <a className="text-3xl">
                             <FiTwitter />
                         </a>
                     </NextLink>
                 </nav>
             </div>
-            <div className="my-24">
+            <div className="my-12 lg:my-24">
                 <div className="mb-8 text-center">
                     <h4 className="mb-4 text-center uppercase">
                         This is where hell starts
                     </h4>
-                    <p className="mb-0">Make your own choice in life.</p>
+                    <p>Make your own choice in life.</p>
                 </div>
                 <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-6 md:space-x-8">
                     {!userSession && (

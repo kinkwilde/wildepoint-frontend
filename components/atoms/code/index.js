@@ -24,7 +24,7 @@ export default function AtomsCode({ content, error }) {
     const message = codeMessage(content, error);
 
     return (
-        <div data-testid="code">
+        <div data-testid="code" className="mt-12 lg:mt-24">
             <div className="flex rounded-t-lg border border-b border-gray-900 bg-gray-800 py-3 px-4">
                 <div className="mr-2 flex min-h-[1rem] min-w-[1rem] items-center justify-center rounded-full bg-red-500">
                     <FiX className="text-xs" />
