@@ -30,35 +30,8 @@ export default function PageIndex({ fallback }) {
         fallbackData: fallback.strapiSingle,
     });
 
-    const cloudinaryConnection = new Cloudinary({
-        cloud: {
-            cloudName: process.env.NEXT_PUBLIC_CLOUDNAME,
-        },
-    });
-
-    const heroImage = cloudinaryConnection
-        .image(
-            generateCloudURL(
-                strapiSingle.index.data.attributes.hero.image.data.attributes
-                    .url
-            )
-        )
-        .resize(crop().aspectRatio("16:9"))
-        .resize(scale().width("1150"))
-        .format("auto")
-        .quality("auto")
-        .toURL();
-
     return (
         <>
-            <NextHead>
-                <link
-                    rel="preload"
-                    href={process.env.NEXT_PUBLIC_APP_URL + "/api/strapi/home"}
-                    as="fetch"
-                    crossOrigin="anonymous"
-                ></link>
-            </NextHead>
             <NextSeo
                 title="Homepage"
                 description="Description"
@@ -95,7 +68,10 @@ export default function PageIndex({ fallback }) {
                         <div className="my-12 lg:my-24">
                             <div className="relative aspect-square overflow-hidden sm:aspect-video">
                                 <NextImage
-                                    src={heroImage}
+                                    src={
+                                        strapiSingle.index.data.attributes.hero
+                                            .image.data.attributes.url
+                                    }
                                     alt={
                                         strapiSingle.index.data.attributes.hero
                                             .image.data.attributes
@@ -188,6 +164,26 @@ export async function getServerSideProps() {
     );
 
     const strapiSingleData = await strapiSingleFetch.json();
+
+    const cloudinaryConnection = new Cloudinary({
+        cloud: {
+            cloudName: process.env.NEXT_PUBLIC_CLOUDNAME,
+        },
+    });
+
+    strapiSingleData.index.data.attributes.hero.image.data.attributes.url =
+        cloudinaryConnection
+            .image(
+                generateCloudURL(
+                    strapiSingleData.index.data.attributes.hero.image.data
+                        .attributes.url
+                )
+            )
+            .resize(crop().aspectRatio("16:9"))
+            .resize(scale().width("1150"))
+            .format("auto")
+            .quality("auto")
+            .toURL();
 
     try {
         return {

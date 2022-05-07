@@ -1,6 +1,7 @@
 module.exports = {
     images: {
         domains: ["res.cloudinary.com"],
+        deviceSizes: [640, 768, 1024, 1280, 1536],
     },
     i18n: {
         defaultLocale: "en-gb",
