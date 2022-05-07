@@ -101,16 +101,9 @@ export default function PageIndex({ fallback }) {
                                             .image.data.attributes
                                             .alternativeText
                                     }
-                                    height={
-                                        strapiSingle.index.data.attributes.hero
-                                            .image.data.attributes.height
-                                    }
-                                    width={
-                                        strapiSingle.index.data.attributes.hero
-                                            .image.data.attributes.width
-                                    }
                                     layout="fill"
                                     objectFit="cover"
+                                    priority="true"
                                 />
                             </div>
                         </div>
