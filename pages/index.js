@@ -1,4 +1,5 @@
 import NextHead from "next/head";
+import NextImage from "next/image";
 import NextLink from "next/link";
 
 import { NextSeo, SocialProfileJsonLd } from "next-seo";
@@ -9,10 +10,8 @@ import useSWR from "swr";
 
 import ReactMarkdown from "react-markdown";
 
-import { AdvancedImage } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
-
-import { scale } from "@cloudinary/url-gen/actions/resize";
+import { crop, scale } from "@cloudinary/url-gen/actions/resize";
 
 import { generateCloudURL } from "../helpers/url";
 
@@ -44,9 +43,11 @@ export default function PageIndex({ fallback }) {
                     .url
             )
         )
-        .resize(scale().width(1000))
+        .resize(crop().aspectRatio("16:9"))
+        .resize(scale().width("1150"))
         .format("auto")
-        .quality("auto");
+        .quality("auto")
+        .toURL();
 
     return (
         <>
@@ -92,7 +93,26 @@ export default function PageIndex({ fallback }) {
                     {strapiSingle.index.data.attributes.hero.image.data !=
                         null && (
                         <div className="my-12 lg:my-24">
-                            <AdvancedImage cldImg={heroImage} />
+                            <div className="relative aspect-square overflow-hidden sm:aspect-video">
+                                <NextImage
+                                    src={heroImage}
+                                    alt={
+                                        strapiSingle.index.data.attributes.hero
+                                            .image.data.attributes
+                                            .alternativeText
+                                    }
+                                    height={
+                                        strapiSingle.index.data.attributes.hero
+                                            .image.data.attributes.height
+                                    }
+                                    width={
+                                        strapiSingle.index.data.attributes.hero
+                                            .image.data.attributes.width
+                                    }
+                                    layout="fill"
+                                    objectFit="cover"
+                                />
+                            </div>
                         </div>
                     )}
                     {strapiSingle.index.data.attributes.richtext.text !=
@@ -118,17 +138,17 @@ export default function PageIndex({ fallback }) {
                 </div>
                 <nav className="flex justify-center space-x-8">
                     <NextLink href="/">
-                        <a className="text-3xl">
+                        <a className="text-3xl" aria-label="Instagram">
                             <FiInstagram />
                         </a>
                     </NextLink>
                     <NextLink href="/">
-                        <a className="text-3xl">
+                        <a className="text-3xl" aria-label="Twitch">
                             <FiTwitch />
                         </a>
                     </NextLink>
                     <NextLink href="/">
-                        <a className="text-3xl">
+                        <a className="text-3xl" aria-label="Twitter">
                             <FiTwitter />
                         </a>
                     </NextLink>
@@ -144,7 +164,10 @@ export default function PageIndex({ fallback }) {
                 <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-6 md:space-x-8">
                     {!userSession && (
                         <NextLink href="/request">
-                            <a className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-montserrat font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800">
+                            <a
+                                className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-montserrat font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800"
+                                aria-label="Request Access"
+                            >
                                 Request Access
                             </a>
                         </NextLink>

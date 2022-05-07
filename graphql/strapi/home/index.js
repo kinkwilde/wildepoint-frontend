@@ -18,8 +18,6 @@ export const HOME_SINGLE_QUERY = gql`
                                     height
                                     width
                                     url
-                                    provider
-                                    provider_metadata
                                 }
                             }
                         }
