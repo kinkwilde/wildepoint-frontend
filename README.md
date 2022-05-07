@@ -1,30 +1,42 @@
+# **WILDEPOINT** FRONTEND
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1b99be0a-a887-4daf-a9cb-850464180100/deploy-status)](https://app.netlify.com/sites/wildepoint/deploys)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Table of Contents
 
-## Getting Started
+1. [Supported devices](#supported-devices)
+2. [Prerequisites](#prerequisites)
+3. [Installation](#installation)
+4. [Usage](#usage)
+    - [First function](#first-function)
+    - [Second function](#second-function)
+5. [License](#license)
 
-First, run the development server:
+## Supported devices
 
-```bash
-npm run dev
-# or
-yarn dev
+## Prerequisites
+
+## Installation
+
+Run
+
+```
+npm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### First Function
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Add the required environment files / values
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Second Function
 
-## Deployment
+Run
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+npm run next:dev
+```
 
 ## VS Code Setup
 
@@ -34,3 +46,5 @@ Plugins required for visual studio code.
 -   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 -   [GraphQL](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql)
 -   [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+## License
