@@ -14,7 +14,7 @@ import {
     FiX,
 } from "react-icons/fi";
 
-import ThemeAtomsLogo from "../../atoms/logo";
+import ThemeAtomsLogo from "../../atoms/logo/splash";
 
 export default function ThemeOrganismsHeader() {
     const { data: userSession } = useSession();

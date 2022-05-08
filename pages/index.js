@@ -1,4 +1,3 @@
-import NextHead from "next/head";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
@@ -8,20 +7,17 @@ import { useSession } from "next-auth/react";
 
 import useSWR from "swr";
 
+import { FiInstagram, FiTwitch, FiTwitter } from "react-icons/fi";
+
 import ReactMarkdown from "react-markdown";
 
-import { Cloudinary } from "@cloudinary/url-gen";
-import { crop, scale } from "@cloudinary/url-gen/actions/resize";
-
-import { generateCloudURL } from "../helpers/url";
+import { image169 } from "../helpers/images";
 
 import TemplateIndex from "../components/templates/index";
 
 import AtomsAccordion from "../components/atoms/accordion";
 import AtomsCode from "../components/atoms/code";
 import AtomsLogin from "../components/atoms/login";
-
-import { FiInstagram, FiTwitch, FiTwitter } from "react-icons/fi";
 
 export default function PageIndex({ fallback }) {
     const { data: userSession } = useSession();
@@ -165,25 +161,11 @@ export async function getServerSideProps() {
 
     const strapiSingleData = await strapiSingleFetch.json();
 
-    const cloudinaryConnection = new Cloudinary({
-        cloud: {
-            cloudName: process.env.NEXT_PUBLIC_CLOUDNAME,
-        },
-    });
-
     strapiSingleData.index.data.attributes.hero.image.data.attributes.url =
-        cloudinaryConnection
-            .image(
-                generateCloudURL(
-                    strapiSingleData.index.data.attributes.hero.image.data
-                        .attributes.url
-                )
-            )
-            .resize(crop().aspectRatio("16:9"))
-            .resize(scale().width("1150"))
-            .format("auto")
-            .quality("auto")
-            .toURL();
+        image169(
+            strapiSingleData.index.data.attributes.hero.image.data.attributes
+                .url
+        );
 
     try {
         return {
