@@ -90,8 +90,8 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
                         },
                         {
                             rel: "apple-touch-icon",
-                            href: "/icon-192x192.png",
-                            sizes: "76x76",
+                            href: "/icon-apple.png",
+                            sizes: "192x192",
                         },
                     ]}
                 />
