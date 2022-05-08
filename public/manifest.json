@@ -1,7 +1,8 @@
 {
     "theme_color": "#2563eb",
     "background_color": "#2563eb",
-    "display": "browser",
+    "display": "standalone",
+    "id": "/",
     "scope": "/",
     "start_url": "/",
     "name": "WILDEPOINT",
