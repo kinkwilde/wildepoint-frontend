@@ -74,11 +74,26 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
 
                 <DefaultSeo
                     title="next-wildepoint"
-                    description="Wildepoint"
+                    description="next-Wildepoint"
                     openGraph={{
                         type: "website",
                         site_name: "next-wildepoint",
                     }}
+                    additionalMetaTags={[
+                        {
+                            name: "application-name",
+                            content: "WILDEPOINT",
+                        },
+                        {
+                            name: "theme-color",
+                            content: "#2563eb",
+                        },
+                        {
+                            rel: "apple-touch-icon",
+                            href: "/icon-192x192.png",
+                            sizes: "76x76",
+                        },
+                    ]}
                 />
 
                 <NextScript
