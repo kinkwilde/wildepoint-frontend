@@ -70,7 +70,7 @@ export default function PageLogin({ csrfToken }) {
                                 )}
                                 <div className="group relative">
                                     <Field
-                                        className="peer block w-full appearance-none border-0 border-b-2 border-black bg-transparent py-3 px-0 text-base focus:border-blue-600 focus:outline-none focus:ring-0"
+                                        className="peer block w-full appearance-none border-0 border-b-2 border-black bg-transparent py-3 px-0 text-base focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-white"
                                         type="text"
                                         name="email"
                                         aria-label="enter your email"
@@ -89,7 +89,7 @@ export default function PageLogin({ csrfToken }) {
                                 </div>
                                 <div className="group relative">
                                     <Field
-                                        className="peer block w-full appearance-none border-0 border-b-2 border-black bg-transparent py-3 px-0 text-base focus:border-blue-600 focus:outline-none focus:ring-0"
+                                        className="peer block w-full appearance-none border-0 border-b-2 border-black bg-transparent py-3 px-0 text-base focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-white"
                                         type="password"
                                         name="password"
                                         aria-label="enter your password"

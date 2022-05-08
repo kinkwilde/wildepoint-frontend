@@ -1,4 +1,5 @@
 module.exports = {
+    darkMode: "class",
     content: ["./components/**/*.{js,jsx}", "./pages/**/*.{js,jsx}"],
     theme: {
         container: {

@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 import { FiMoreVertical, FiX, FiGithub, FiDatabase } from "react-icons/fi";
 
-export default function ThemeAtomsBurger() {
+export default function AtomsBurger() {
     const { pathname } = useRouter();
 
     const [isExpanded, setExpanded] = useState(false);
