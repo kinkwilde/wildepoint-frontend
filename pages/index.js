@@ -51,13 +51,15 @@ export default function PageIndex({ fallback }) {
             />
             {strapiSingle.index.data != null && (
                 <>
-                    <div className="mx-auto mb-8 max-w-prose text-center md:mb-12">
-                        <h1 className="mb-4">
-                            {strapiSingle.index.data.attributes.title}
-                        </h1>
-                        <p className="text-lg">
-                            {strapiSingle.index.data.attributes.intro}
-                        </p>
+                    <div className="mx-auto max-w-prose">
+                        <div className="mb-8 text-center md:mb-12">
+                            <h1 className="mb-4">
+                                {strapiSingle.index.data.attributes.title}
+                            </h1>
+                            <p className="text-lg">
+                                {strapiSingle.index.data.attributes.intro}
+                            </p>
+                        </div>
                     </div>
                     {strapiSingle.index.data.attributes.hero.image.data !=
                         null && (
@@ -82,65 +84,71 @@ export default function PageIndex({ fallback }) {
                     )}
                     {strapiSingle.index.data.attributes.richtext.text !=
                         null && (
-                        <div className="mx-auto my-12 max-w-prose text-center lg:my-24">
-                            <ReactMarkdown>
-                                {
-                                    strapiSingle.index.data.attributes.richtext
-                                        .text
-                                }
-                            </ReactMarkdown>
+                        <div className="mx-auto max-w-prose">
+                            <div className="my-12 text-center lg:my-24">
+                                <ReactMarkdown>
+                                    {
+                                        strapiSingle.index.data.attributes
+                                            .richtext.text
+                                    }
+                                </ReactMarkdown>
+                            </div>
                         </div>
                     )}
                 </>
             )}
             <div className="my-12 lg:my-24">
-                <div className="mx-auto mb-8 max-w-prose text-center">
-                    <h3 className="uppercase">Find Me On Social Media</h3>
-                    <p>
-                        I have a very limited social media presence, and the
-                        places you can find me are listed below.
-                    </p>
-                </div>
-                <nav className="flex justify-center space-x-8">
-                    <NextLink href="/">
-                        <a className="text-3xl" aria-label="Instagram">
-                            <FiInstagram />
-                        </a>
-                    </NextLink>
-                    <NextLink href="/">
-                        <a className="text-3xl" aria-label="Twitch">
-                            <FiTwitch />
-                        </a>
-                    </NextLink>
-                    <NextLink href="/">
-                        <a className="text-3xl" aria-label="Twitter">
-                            <FiTwitter />
-                        </a>
-                    </NextLink>
-                </nav>
-            </div>
-            <div className="my-12 lg:my-24">
-                <div className="mb-8 text-center">
-                    <h4 className="mb-4 text-center uppercase">
-                        This is where hell starts
-                    </h4>
-                    <p>Make your own choice in life.</p>
-                </div>
-                <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-6 md:space-x-8">
-                    {!userSession && (
-                        <NextLink href="/request">
-                            <a
-                                className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-montserrat font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800"
-                                aria-label="Request Access"
-                            >
-                                Request Access
+                <div className="mx-auto max-w-prose">
+                    <div className="mb-8 text-center">
+                        <h3 className="uppercase">Find Me On Social Media</h3>
+                        <p>
+                            I have a very limited social media presence, and the
+                            places you can find me are listed below.
+                        </p>
+                    </div>
+                    <nav className="flex justify-center space-x-8">
+                        <NextLink href="/">
+                            <a className="text-3xl" aria-label="Instagram">
+                                <FiInstagram />
                             </a>
                         </NextLink>
-                    )}
-                    <AtomsLogin />
+                        <NextLink href="/">
+                            <a className="text-3xl" aria-label="Twitch">
+                                <FiTwitch />
+                            </a>
+                        </NextLink>
+                        <NextLink href="/">
+                            <a className="text-3xl" aria-label="Twitter">
+                                <FiTwitter />
+                            </a>
+                        </NextLink>
+                    </nav>
                 </div>
-                <div className="mt-12">
-                    <AtomsAccordion />
+            </div>
+            <div className="my-12 lg:my-24">
+                <div className="mx-auto max-w-prose">
+                    <div className="mb-8 text-center">
+                        <h4 className="mb-4 text-center uppercase">
+                            This is where hell starts
+                        </h4>
+                        <p>Make your own choice in life.</p>
+                    </div>
+                    <div className="grid gap-y-4 sm:grid-cols-2 sm:gap-6 sm:gap-y-0 md:gap-8">
+                        {!userSession && (
+                            <NextLink href="/request">
+                                <a
+                                    className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-montserrat font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800"
+                                    aria-label="Request Access"
+                                >
+                                    Request Access
+                                </a>
+                            </NextLink>
+                        )}
+                        <AtomsLogin />
+                    </div>
+                    <div className="mt-12">
+                        <AtomsAccordion />
+                    </div>
                 </div>
             </div>
             {strapiSingle && (
