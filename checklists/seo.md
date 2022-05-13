@@ -1,194 +1,159 @@
+# SEO Checklist
+
 ## Head
 
 > **Note:** You can find a list of everything at [joshbuchea/HEAD](https://github.com/joshbuchea/HEAD) that could be found in the `<head>` of an HTML document.
 
 ### Meta tag
 
--   [x] **Doctype:** The Doctype is HTML5 and is at the top of all your HTML pages.
+[x] **Doctype:** The Doctype is HTML5 and is at the top of all your HTML pages.
 
 ```html
 <!DOCTYPE html>
 ```
 
+> #### **Links**
+>
 > -   [Determining the character encoding - HTML5 W3C](https://www.w3.org/TR/html5/syntax.html#determining-the-character-encoding)
 
-_The next 2 meta tags (Charset and Viewport) need to come first in the head._
-
--   [x] **Charset:** The charset (UTF-8) is declared correctly.
+[x] **Charset:** The charset (UTF-8) is declared correctly.
 
 ```html
 <meta charset="utf-8" />
 ```
 
--   [ ] **Viewport:** The viewport is declared correctly.
+[x] **Viewport:** The viewport is declared correctly.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 ```
 
--   [ ] **Title:** ![High][high_img] A title is used on all pages (SEO: Google calculates the pixel width of the characters used in the title, and it cuts off between 472 and 482 pixels. The average character limit would be around 55-characters).
+[ ] **Title:** A title is used on all pages (SEO: Google calculates the pixel width of the characters used in the title, and it cuts off between 472 and 482 pixels. The average character limit would be approximately 50 to 70 characters).
 
 ```html
-<!-- Document Title -->
-
-<title>Page Title less than 55 characters</title>
+<title>An example of a page title</title>
 ```
 
-> -   📖 [Title - HTML - MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
+> #### **Links**
+>
+> -   [Title - HTML - MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
 
-> -   🛠 [SERP Snippet Generator](https://www.sistrix.com/serp-snippet-generator/)
-
--   [ ] **Description:** ![High][high_img] A meta description is provided, it is unique and doesn't possess more than 150 characters.
+[ ] **Description:** A meta description is provided, it is unique and doesn't possess more than 155 - 160 characters.
 
 ```html
-<!-- Meta Description -->
-
-<meta
-    name="description"
-    content="Description of the page less than 150 characters"
-/>
+<meta name="description" content="An example of a page description" />
 ```
 
-> -   📖 [Meta Description - HTML - MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Adding_an_author_and_description)
+> #### **Links**
+>
+> -   [Description - HTML - MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Adding_an_author_and_description)
 
--   [ ] **Favicons:** ![Medium][medium_img] Each favicon has been created and displays correctly. If you have only a `favicon.ico`, put it at the root of your site. Normally you won't need to use any markup. However, it's still good practice to link to it using the example below. Today, **PNG format is recommended** over `.ico` format (dimensions: 32x32px).
+[ ] **Favicons:** Each favicon has been created and displays correctly.
 
 ```html
-<!-- Standard favicon -->
-
-<link rel="icon" type="image/x-icon" href="https://example.com/favicon.ico" />
-
-<!-- Recommended favicon format -->
-
-<link rel="icon" type="image/png" href="https://example.com/favicon.png" />
+<link rel="shortcut icon" href="favicon.ico" sizes="any" />
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="manifest" href="manifest.webmanifest" />
 ```
 
-> -   🛠 [Favicon Generator](https://www.favicon-generator.org/)
+```json
+{
+    "background_color": "#2563eb",
+    "description": "My Personal Blog",
+    "display": "standalone",
+    "id": "/",
+    "name": "WILDEPOINT",
+    "scope": "/",
+    "short_name": "wilde.",
+    "start_url": "/",
+    "theme_color": "#2563eb",
+    "icons": [
+        {
+            "sizes": "192x192",
+            "src": "icon-192x192.png",
+            "type": "image/png"
+        },
+        {
+            "sizes": "512x512",
+            "src": "icon-512x512.png",
+            "type": "image/png"
+        }
+    ]
+}
+```
 
-> -   🛠 [RealFaviconGenerator](https://realfavicongenerator.net/)
+> #### **Information**
+>
+> -   ICO: 32
+> -   PNG: 192, 512
+>
+> #### **Links**
+>
+> -   [RealFaviconGenerator](https://realfavicongenerator.net/)
 
-> -   📖 [Favicon Cheat Sheet](https://github.com/audreyr/favicon-cheat-sheet)
-
-> -   📖 [Favicons, Touch Icons, Tile Icons, etc. Which Do You Need? - CSS Tricks](https://css-tricks.com/favicon-quiz/)
-
-> -   📖 [PNG favicons - caniuse](https://caniuse.com/#feat=link-icon-png)
-
--   [ ] **Apple Web App Meta:** ![Low][low_img] Apple meta-tags are present.
+[ ] **Apple Web App Meta:** Apple meta-tags are present.
 
 ```html
-<!-- Apple Touch Icon (at least 200x200px) -->
-
-<link rel="apple-touch-icon" href="/custom-icon.png" />
-
-<!-- To run web application in full-screen -->
-
 <meta name="apple-mobile-web-app-capable" content="yes" />
-
-<!-- Status Bar Style (see Supported Meta Tags below for available values) -->
-
-<!-- Has no effect unless you have the previous meta tag -->
-
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 ```
 
-> -   📖 [Configuring Web Applications](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
-
-> -   📖 [Supported Meta Tags](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
-
--   [ ] **Windows Tiles:** ![Low][low_img] Windows tiles are present and linked.
+[ ] **Windows Tiles:** Windows tiles are present and linked.
 
 ```html
-<!-- Microsoft Tiles -->
-
 <meta name="msapplication-config" content="browserconfig.xml" />
 ```
 
-Minimum required xml markup for the `browserconfig.xml` file is as follows:
-
 ```xml
-
 <?xml version="1.0" encoding="utf-8"?>
-
 <browserconfig>
-
-<msapplication>
-
-<tile>
-
-<square70x70logo  src="small.png"/>
-
-<square150x150logo  src="medium.png"/>
-
-<wide310x150logo  src="wide.png"/>
-
-<square310x310logo  src="large.png"/>
-
-</tile>
-
-</msapplication>
-
+    <msapplication>
+        <tile>
+            <square70x70logo src="small.png"/>
+            <square150x150logo src="medium.png"/>
+            <square310x310logo src="large.png"/>
+            <wide310x150logo src="wide.png"/>
+        </tile>
+    </msapplication>
 </browserconfig>
-
 ```
 
-> -   📖 [Browser configuration schema reference](<https://msdn.microsoft.com/en-us/library/dn320426(v=vs.85).aspx>)
+> #### **Links**
+>
+> -   [Browser configuration schema reference](<https://msdn.microsoft.com/en-us/library/dn320426(v=vs.85).aspx>)
 
--   [ ] **Canonical:** ![Medium][medium_img] Use `rel="canonical"` to avoid duplicate content.
+[ ] **Canonical:** Use `rel="canonical"` to avoid duplicate content.
 
 ```html
-<!-- Helps prevent duplicate content issues -->
-
-<link
-    rel="canonical"
-    href="http://example.com/2017/09/a-new-article-to-read.html"
-/>
+<link rel="canonical" href="http://example.com" />
 ```
-
-> -   📖 [Use canonical URLs - Search Console Help - Google Support](https://support.google.com/webmasters/answer/139066?hl=en)
-
-> -   📖 [5 common mistakes with rel=canonical - Google Webmaster Blog](https://webmasters.googleblog.com/2013/04/5-common-mistakes-with-relcanonical.html)
 
 ### HTML tags
 
--   [ ] **Language attribute:** ![High][high_img] The `lang` attribute of your website is specified and related to the language of the current page.
+[ ] **Language attribute:** The `lang` attribute of your website is specified and related to the language of the current page.
 
 ```html
-<html lang="en"></html>
+<html lang="en-gb"></html>
 ```
 
--   [ ] **Direction attribute:** ![Medium][medium_img] The direction of lecture is specified on the html tag (It can be used on another HTML tag).
+[ ] **Alternate language:** The language tag of your website is specified and related to the language of the current page.
 
 ```html
-<html dir="rtl"></html>
+<link rel="alternate" href="https://de.example.com" hreflang="de" />
 ```
 
-> -   📖 [dir - HTML - MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir)
-
--   [ ] **Alternate language:** ![Low][low_img] The language tag of your website is specified and related to the language of the current page.
+[ ] **CSS Critical:** The CSS critical (or "above the fold") is inlined.
 
 ```html
-<link rel="alternate" href="https://es.example.com/" hreflang="es" />
+<style>
+    /* Critical CSS */
+</style>
 ```
 
--   [ ] **x-default:** ![Low][low_img] The language tag of your website for international landing pages.
-
-```html
-<link rel="alternate" href="https://example.com/" hreflang="x-default" />
-```
-
-> -   📖 [x-default - Google](https://webmasters.googleblog.com/2013/04/x-default-hreflang-for-international-pages.html)
-
--   [ ] **Conditional comments:** ![Low][low_img] Conditional comments are present for IE if needed.
-
-> -   📖 [About conditional comments (Internet Explorer) - MSDN - Microsoft](<https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx>)
-
--   [ ] **RSS feed:** ![Low][low_img] If your project is a blog or has articles, an RSS link was provided.
-
--   [ ] **CSS Critical:** ![Medium][medium_img] The CSS critical (or "above the fold") collects all the CSS used to render the visible portion of the page. It is embedded before your principal CSS call and between `<style></style>` in a single line (minified).
-
-> -   🛠 [Critical by Addy Osmani on GitHub](https://github.com/addyosmani/critical) automates this.
-
--   [ ] **CSS order:** ![High][high_img] All CSS files are loaded before any JavaScript files in the `<head>`. (Except the case where sometimes JS files are loaded asynchronously on top of your page).
+> #### **Links**
+>
+> -   [Critical by Addy Osmani on GitHub](https://github.com/addyosmani/critical) automates this.
 
 ### Social meta
 
