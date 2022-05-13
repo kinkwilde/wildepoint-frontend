@@ -15,7 +15,7 @@
 
 ## Project Checklists
 
-[![SEO Checklist](https://img.shields.io/badge/SEO%20CHECKLIST-INCOMPLETE-red)](https://github.com/kinkwilde/wildepoint-frontend/tree/main/checklists)
+[![SEO Checklist](https://img.shields.io/badge/SEO%20CHECKLIST-INCOMPLETE-red)](https://github.com/kinkwilde/wildepoint-frontend/tree/main/checklists/seo.md)
 
 ## Supported devices
 
