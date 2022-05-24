@@ -72,7 +72,6 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
                             name="viewport"
                             content="width=device-width, initial-scale=1"
                         />
-                        <link rel="manifest" href="/manifest.json" />
                     </NextHead>
 
                     <DefaultSeo
@@ -90,6 +89,24 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
                             {
                                 name: "theme-color",
                                 content: "#2563eb",
+                            },
+                            {
+                                name: "apple-mobile-web-app-capable",
+                                content: "yes",
+                            },
+                            {
+                                name: "apple-mobile-web-app-status-bar-style",
+                                content: "black",
+                            },
+                            {
+                                name: "msapplication-config",
+                                content: "/browserconfig.xml",
+                            },
+                        ]}
+                        additionalLinkTags={[
+                            {
+                                rel: "manifest",
+                                href: "/manifest.webmanifest",
                             },
                             {
                                 rel: "apple-touch-icon",

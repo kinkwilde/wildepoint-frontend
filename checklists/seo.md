@@ -12,15 +12,15 @@
 <!DOCTYPE html>
 ```
 
-> #### **Links**
->
-> -   [Determining the character encoding - HTML5 W3C](https://www.w3.org/TR/html5/syntax.html#determining-the-character-encoding)
-
 [x] **Charset:** The charset (UTF-8) is declared correctly.
 
 ```html
 <meta charset="utf-8" />
 ```
+
+> #### **Links**
+>
+> -   [Determining the character encoding - HTML5 W3C](https://www.w3.org/TR/html5/syntax.html#determining-the-character-encoding)
 
 [x] **Viewport:** The viewport is declared correctly.
 
