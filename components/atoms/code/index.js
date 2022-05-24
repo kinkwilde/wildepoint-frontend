@@ -36,7 +36,7 @@ export default function AtomsCode({ content, error }) {
                     <FiMaximize2 className="text-xs" />
                 </div>
             </div>
-            <code className="block overflow-x-hidden rounded-b-lg bg-gray-700 p-4 text-white shadow-inner">
+            <code className="block overflow-x-scroll rounded-b-lg bg-gray-700 p-4 text-white shadow-inner">
                 {message}
             </code>
         </div>

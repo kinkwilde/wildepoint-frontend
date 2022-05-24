@@ -11,8 +11,6 @@ import { FiInstagram, FiTwitch, FiTwitter } from "react-icons/fi";
 
 import ReactMarkdown from "react-markdown";
 
-import { image169 } from "../helpers/images";
-
 import TemplateIndex from "../components/templates/index";
 
 import AtomsAccordion from "../components/atoms/accordion";
@@ -168,12 +166,6 @@ export async function getServerSideProps() {
     );
 
     const strapiSingleData = await strapiSingleFetch.json();
-
-    strapiSingleData.index.data.attributes.hero.image.data.attributes.url =
-        image169(
-            strapiSingleData.index.data.attributes.hero.image.data.attributes
-                .url
-        );
 
     try {
         return {
