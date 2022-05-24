@@ -131,13 +131,13 @@
 
 ### HTML tags
 
-[ ] **Language attribute:** The `lang` attribute of your website is specified and related to the language of the current page.
+[ ] **Language:** The `lang` attribute of your website is specified and related to the language of the current page.
 
 ```html
 <html lang="en-gb"></html>
 ```
 
-[ ] **Alternate language:** The language tag of your website is specified and related to the language of the current page.
+[ ] **Alternate Language:** The language tag of your website is specified and related to the language of the current page.
 
 ```html
 <link rel="alternate" href="https://de.example.com" hreflang="de" />
@@ -151,246 +151,94 @@
 </style>
 ```
 
-> #### **Links**
->
-> -   [Critical by Addy Osmani on GitHub](https://github.com/addyosmani/critical) automates this.
-
 ### Social meta
-
-Visualize and generate automatically our social meta tags with [Meta Tags](https://metatags.io/)
 
 **_Facebook OG_** and **_Twitter Cards_** are, for any website, highly recommended. The other social media tags can be considered if you target a particular presence on those and want to ensure the display.
 
--   [ ] **Facebook Open Graph:** ![Low][low_img] All Facebook Open Graph (OG) are tested and no one is missing or with false information. Images need to be at least 600 x 315 pixels, although 1200 x 630 pixels is recommended.
+[ ] **Facebook Open Graph:** All Facebook Open Graph (OG) are tested and no one is missing or with false information. Images need to be at least 600 x 315 pixels, although 1200 x 630 pixels is recommended.
+
+```html
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://example.com/page.html" />
+<meta property="og:title" content="Content Title" />
+<meta property="og:image" content="https://example.com/image.jpg" />
+<meta property="og:description" content="Description Here" />
+<meta property="og:site_name" content="Site Name" />
+<meta property="og:locale" content="en_US" />
+```
+
+These tags are optional but recommended
 
 > **Notes:** Using `og:image:width` and `og:image:height` will specify the image dimensions to the crawler so that it can render the image immediately without having to asynchronously download and process it.
 
 ```html
-<meta property="og:type" content="website" />
-
-<meta property="og:url" content="https://example.com/page.html" />
-
-<meta property="og:title" content="Content Title" />
-
-<meta property="og:image" content="https://example.com/image.jpg" />
-
-<meta property="og:description" content="Description Here" />
-
-<meta property="og:site_name" content="Site Name" />
-
-<meta property="og:locale" content="en_US" />
-
-<!-- Next tags are optional but recommended -->
-
 <meta property="og:image:width" content="1200" />
-
 <meta property="og:image:height" content="630" />
 ```
 
-> -   📖 [A Guide to Sharing for Webmasters](https://developers.facebook.com/docs/sharing/webmasters/)
+> #### **Links**
+>
+> -   [Best Practices](https://developers.facebook.com/docs/sharing/best-practices/)
+> -   Test your page with the [Facebook OG Testing Tool](https://developers.facebook.com/tools/debug/)
 
-> -   📖 [Best Practices - Sharing](https://developers.facebook.com/docs/sharing/best-practices/)
-
-> -   🛠 Test your page with the [Facebook OG testing](https://developers.facebook.com/tools/debug/)
-
--   [ ] **Twitter Card:** ![Low][low_img]
+[ ] **Twitter Card:**
 
 ```html
 <meta name="twitter:card" content="summary" />
-
 <meta name="twitter:site" content="@site_account" />
-
 <meta name="twitter:creator" content="@individual_account" />
-
 <meta name="twitter:url" content="https://example.com/page.html" />
-
 <meta name="twitter:title" content="Content Title" />
-
+<meta name="twitter:image" content="https://example.com/image.jpg" />
 <meta
     name="twitter:description"
     content="Content description less than 200 characters"
 />
-
-<meta name="twitter:image" content="https://example.com/image.jpg" />
 ```
 
-> -   📖 [Getting started with cards — Twitter Developers](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started)
-
-> -   🛠 Test your page with the [Twitter card validator](https://cards-dev.twitter.com/validator)
-
-**[⬆ back to top](#table-of-contents)**
-
----
+> #### **Links**
+>
+> -   [Getting Started](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started)
+> -   Test your page with the [Twitter Card Validator Tool](https://cards-dev.twitter.com/validator)
 
 ## HTML
 
 ### Best practices
 
--   [ ] **HTML5 Semantic Elements:** ![High][high_img] HTML5 Semantic Elements are used appropriately (header, section, footer, main...).
+[ ] **HTML5 Semantic Elements:** HTML5 Semantic Elements are used appropriately (header, section, footer, main, etc...)
 
-> -   📖 [HTML Reference](http://htmlreference.io/)
+> #### **Links**
+>
+> -   [HTML Reference](http://htmlreference.io/)
 
--   [ ] **Error pages:** ![High][high_img] Error 404 page and 5xx exist. Remember that the 5xx error pages need to have their CSS integrated (no external call on the current server).
+[ ] **Unique ID:** They must be unique.
 
--   [ ] **Noopener:** ![Medium][medium_img] In case you are using external links with `target="_blank"`, your link should have a `rel="noopener"` attribute to prevent tab nabbing. If you need to support older versions of Firefox, use `rel="noopener noreferrer"`.
+[ ] **JS Prefix:** All classes / ID begin with **js-** and are not styled into the CSS files.
 
-> -   📖 [About rel=noopener](https://mathiasbynens.github.io/rel-noopener/)
+```html
+<div id="js-slider"></div>
+<div class="js-slider my-slider"></div>
+```
 
--   [ ] **Clean up comments:** ![Low][low_img] Unnecessary code needs to be removed before sending the page to production.
+[ ] **Error Pages:** Error 404 page and 5xx exist.
 
 ### HTML testing
 
--   [ ] **W3C compliant:** ![High][high_img] All pages need to be tested with the W3C validator to identify possible issues in the HTML code.
+[ ] **W3C Compliant:** All pages need to be tested with the W3C validator to identify possible issues in the HTML code.
 
-> -   🛠 [W3C validator](https://validator.w3.org/)
+> #### **Links**
+>
+> -   [W3C validator](https://validator.w3.org/)
 
--   [ ] **HTML Lint:** ![High][high_img] I use tools to help me analyze any issues I could have on my HTML code.
+[ ] **Link Checker:** There are no broken links in my page, verify that you don't have any 404 error.
 
-> -   🛠 [Dirty markup](https://www.10bestdesign.com/dirtymarkup/)
-
-> -   🛠 [webhint](https://webhint.io/)
-
--   [ ] **Link checker:** ![High][high_img] There are no broken links in my page, verify that you don't have any 404 error.
-
-> -   🛠 [W3C Link Checker](https://validator.w3.org/checklink)
-
--   [ ] **Adblockers test:** ![Medium][medium_img] Your website shows your content correctly with adblockers enabled (You can provide a message encouraging people to disable their adblocker).
-
-> -   📖 [Use AdBlocking in your Dev Environment](https://andreicioara.com/use-adblocking-in-your-dev-environment-48db500d9b86)
-
-**[⬆ back to top](#table-of-contents)**
-
----
-
-## Webfonts
-
-> **Notes:** Using web fonts may cause Flash Of Unstyled Text/Flash Of Invisible Text - consider having fallback fonts and/or utilizing web font loaders to control behavior.
-
-> -   📖 [Google Technical considerations about webfonts](https://developers.google.com/fonts/docs/technical_considerations)
-
--   [ ] **Webfont format:** ![High][high_img] WOFF, WOFF2 and TTF are supported by all modern browsers.
-
-> -   📖 [WOFF - Web Open Font Format - Caniuse](https://caniuse.com/#feat=woff).
-
-> -   📖 [WOFF 2.0 - Web Open Font Format - Caniuse](https://caniuse.com/#feat=woff2).
-
-> -   📖 [TTF/OTF - TrueType and OpenType font support](https://caniuse.com/#feat=ttf)
-
-> -   📖 [Using @font-face - CSS-Tricks](https://css-tricks.com/snippets/css/using-font-face/)
-
--   [ ] **Webfont size:** ![High][high_img] Webfont sizes don't exceed 2 MB (all variants included).
-
--   [ ] **Webfont loader:** ![Low][low_img] Control loading behavior with a webfont loader
-
-> -   🛠 [Typekit Web Font Loader](https://github.com/typekit/webfontloader)
-
-**[⬆ back to top](#table-of-contents)**
-
----
+> #### **Links**
+>
+> -   [W3C Link Checker](https://validator.w3.org/checklink)
 
 ## CSS
 
-> **Notes:** Take a look at [CSS guidelines](https://cssguidelin.es/) and [Sass Guidelines](https://sass-guidelin.es/) followed by most Front-End developers. If you have a doubt about CSS properties, you can visit [CSS Reference](http://cssreference.io/). There is also a short [Code Guide](http://codeguide.co/) for consistency.
-
--   [ ] **Responsive Web Design:** ![High][high_img] The website is using responsive web design.
-
--   [ ] **CSS Print:** ![Medium][medium_img] A print stylesheet is provided and is correct on each page.
-
--   [ ] **Preprocessors:** ![Low][low_img] Your project is using a CSS preprocessor (e.g [Sass](http://sass-lang.com/), [Less](http://lesscss.org/), [Stylus](http://stylus-lang.com/)).
-
--   [ ] **Unique ID:** ![High][high_img] If IDs are used, they are unique to a page.
-
--   [ ] **Reset CSS:** ![High][high_img] A CSS reset (reset, normalize or reboot) is used and up to date. _(If you are using a CSS Framework like Bootstrap or Foundation, a Normalize is already included into it.)_
-
-> -   📖 [Reset.css](https://meyerweb.com/eric/tools/css/reset/)
-
-> -   📖 [Normalize.css](https://necolas.github.io/normalize.css/)
-
-> -   📖 [Reboot](https://getbootstrap.com/docs/4.0/content/reboot/)
-
--   [ ] **JS prefix:** ![Low][low_img] All classes (or id- used in JavaScript files) begin with **js-** and are not styled into the CSS files.
-
-```html
-<div id="js-slider" class="my-slider">
-    <!-- Or -->
-
-    <div id="id-used-by-cms" class="js-slider my-slider"></div>
-</div>
-```
-
--   [ ] **embedded or inline CSS:** ![High][high_img] Avoid at all cost embedding CSS in `<style>` tags or using inline CSS: only use for valid reasons (e.g. background-image for slider, critical CSS).
-
--   [ ] **Vendor prefixes:** ![High][high_img] CSS vendor prefixes are used and are generated accordingly with your browser support compatibility.
-
-> -   🛠 [Autoprefixer CSS online](https://autoprefixer.github.io/)
-
-### Performance
-
--   [ ] **Concatenation:** ![High][high_img] CSS files are concatenated in a single file _(Not for HTTP/2)_.
-
--   [ ] **Minification:** ![High][high_img] All CSS files are minified.
-
--   [ ] **Non-blocking:** ![Medium][medium_img] CSS files need to be non-blocking to prevent the DOM from taking time to load.
-
-> -   📖 [loadCSS by filament group](https://github.com/filamentgroup/loadCSS)
-
-> -   📖 [Example of preload CSS using loadCSS](https://gist.github.com/thedaviddias/c24763b82b9991e53928e66a0bafc9bf)
-
--   [ ] **Unused CSS:** ![Low][low_img] Remove unused CSS.
-
-> -   🛠 [UnCSS Online](https://uncss-online.com/)
-
-> -   🛠 [PurifyCSS](https://github.com/purifycss/purifycss)
-
-> -   🛠 [PurgeCSS](https://github.com/FullHuman/purgecss)
-
-> -   🛠 [Chrome DevTools Coverage](https://developer.chrome.com/docs/devtools/coverage/)
-
-### CSS testing
-
--   [ ] **Stylelint:** ![High][high_img] All CSS or SCSS files are without any errors.
-
-> -   🛠 [stylelint, a CSS linter](https://stylelint.io/)
-
-> -   📖 [Sass guidelines](https://sass-guidelin.es/)
-
--   [ ] **Responsive web design:** ![High][high_img] All pages were tested at the following breakpoints: 320px, 768px, 1024px (can be more / different according to your analytics).
-
-**Responsive Checker -**
-
-> -   🛠 [Am I Responsive?](http://ami.responsivedesign.is/)
-
-> -   🛠 [Mobile Friendly Test](https://search.google.com/test/mobile-friendly)
-
-> -   🛠 [Responsive Website Design Tester](https://responsivedesignchecker.com/)
-
-> -   🛠 [Responsinator](https://www.responsinator.com/)
-
-> -   🛠 [XRespond](https://xrespond.com/)
-
--   [ ] **CSS Validator:** ![Medium][medium_img] The CSS was tested and pertinent errors were corrected.
-
-> -   🛠 [CSS Validator](https://jigsaw.w3.org/css-validator/)
-
--   [ ] **Desktop Browsers:** ![High][high_img] All pages were tested on all current desktop browsers (Safari, Firefox, Chrome, Internet Explorer, EDGE...).
-
--   [ ] **Mobile Browsers:** ![High][high_img] All pages were tested on all current mobile browsers (Native browser, Chrome, Safari...).
-
--   [ ] **OS:** ![High][high_img] All pages were tested on all current OS (Windows, Android, iOS, Mac...).
-
--   [ ] **Design fidelity:** ![Low][low_img] Depending on the project and the quality of the creatives, you may be asked to be close to the design. You can use some tools to compare creatives with your code implementation and ensure consistency.
-
-> [Pixel Perfect - Chrome Extension](https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi?hl=en)
-
--   [ ] **Reading direction:** ![High][high_img] All pages need to be tested for LTR and RTL languages if they need to be supported.
-
-> -   📖 [Building RTL-Aware Web Apps & Websites: Part 1 - Mozilla Hacks](https://hacks.mozilla.org/2015/09/building-rtl-aware-web-apps-and-websites-part-1/)
-
-> -   📖 [Building RTL-Aware Web Apps & Websites: Part 2 - Mozilla Hacks](https://hacks.mozilla.org/2015/10/building-rtl-aware-web-apps-websites-part-2/)
-
-**[⬆ back to top](#table-of-contents)**
-
----
+[ ] **CSS Print:** A print stylesheet is provided and is correct on each page.
 
 ## Images
 
@@ -398,45 +246,19 @@ Visualize and generate automatically our social meta tags with [Meta Tags](https
 
 ### Best practices
 
--   [ ] **Optimization:** ![High][high_img] All images are optimized to be rendered in the browser. WebP format could be used for critical pages (like Homepage).
+[ ] **Optimization:** All images are optimized.
 
-> -   🛠 [Imagemin](https://github.com/imagemin/imagemin)
+[ ] **Srcset:** Use srcset to provide the most appropriate image for the current viewport of the user.
 
-> -   🛠 Use [ImageOptim](https://imageoptim.com/) to optimise your images for free.
-
-> -   🛠 Use [KeyCDN Image Processing](https://www.keycdn.com/support/image-processing) for image optimization in real time.
-
-> -   🛠 Use [Kraken.io](https://kraken.io/web-interface) awesome alternative for both png and jpg optimization. Up to 1mb per files on free plan.
-
-> -   🛠 [TinyPNG](https://tinypng.com/) losslessly optimises png, apng (animated png) and jpg images. Free and paid version available.
-
-> -   🛠 [ZorroSVG](http://quasimondo.com/ZorroSVG/) jpg-like compression for transparent images using svg masking.
-
-> -   🛠 [SVGO](https://github.com/svg/svgo) a Nodejs-based tool for optimizing SVG vector graphics files.
-
-> -   🛠 [SVGOMG](https://jakearchibald.github.io/svgomg/) a web-based GUI version of SVGO for optimising your svgs online.
-
--   [ ] **Picture/Srcset:** ![Medium][medium_img] You use picture/srcset to provide the most appropriate image for the current viewport of the user.
-
-> -   📖 [How to Build Responsive Images with srcset](https://www.sitepoint.com/how-to-build-responsive-images-with-srcset/)
-
--   [ ] **Retina:** ![Low][low_img] You provide layout images 2x or 3x, support retina display.
-
--   [ ] **Sprite:** ![Medium][medium_img] Small images are in a sprite file (in the case of icons, they can be in an SVG sprite image).
+[ ] **Retina:** You provide layout images 2x or 3x, support retina display.
 
 -   [ ] **Width and Height:** ![High][high_img] Set `width` and `height` attributes on `<img>` if the final rendered image size is known (can be omitted for CSS sizing).
 
 -   [ ] **Alternative text:** ![High][high_img] All `<img>` have an alternative text which describes the image visually.
 
-> -   📖 [Alt-texts: The Ultimate Guide](https://axesslab.com/alt-texts/)
-
 -   [ ] **Lazy loading:** ![Medium][medium_img] Images are lazyloaded (A noscript fallback is always provided).
 
 > -   🛠 [Native lazy loading polyfill](https://github.com/mfranzke/loading-attribute-polyfill/)
-
-**[⬆ back to top](#table-of-contents)**
-
----
 
 ## JavaScript
 
