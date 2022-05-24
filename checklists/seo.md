@@ -1,5 +1,26 @@
 # SEO Checklist
 
+## Tools
+
+> **Note:** If you can't measure it, you can't improve it.
+
+### Analytics Tools
+
+> #### **Links**
+>
+> -   [Google Analytics](http://analytics.google.com/) - Analyse traffic and behaviour of users on your site. Launch experiments and track conversions
+> -   [Google Search Console](https://search.google.com/search-console/about) - Measure your site's search traffic and performance, shows click-through rate and issues such as unreachable links
+
+### Checkers
+
+> #### **Links**
+>
+> -   [Lighthouse](https://developers.google.com/web/tools/lighthouse/) - Addressing technical and on-site seo issues
+> -   [Webhint](https://webhint.io/) - Checks for issues such as: accessibility, compatibility, pwa, performance, pitfalls and security
+> -   [Google’s Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) - Test if page is mobile friendly
+
+### Chrome Extensions
+
 ## Head
 
 > **Note:** You can find a list of everything at [joshbuchea/HEAD](https://github.com/joshbuchea/HEAD) that could be found in the `<head>` of an HTML document.
