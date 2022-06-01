@@ -8,11 +8,11 @@ export default function ThemeOrganismsHeaderSplash() {
     return (
         <>
             <header className="mb-8 flex items-center justify-between md:mb-12 lg:mb-24">
-                <ThemeAtomsLogoSplash />
-                <div className="flex items-center space-x-2">
-                    <ThemeAtomsBurger />
+                <div className="flex items-center space-x-1">
                     <AtomsTheme />
+                    <ThemeAtomsLogoSplash />
                 </div>
+                <ThemeAtomsBurger />
             </header>
         </>
     );
