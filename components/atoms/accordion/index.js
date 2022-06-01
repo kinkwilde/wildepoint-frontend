@@ -8,7 +8,7 @@ export default function AtomsAccordion() {
     return (
         <div>
             <button
-                className="font-medium flex w-full items-center justify-between rounded-lg border border-gray-200 p-5 text-left font-montserrat text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"
+                className="font-medium flex w-full items-center justify-between rounded-lg border border-gray-200 p-5 text-left font-title text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"
                 onClick={() => setActive(!isActive)}
             >
                 <div>This is FAQ</div>

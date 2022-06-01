@@ -10,7 +10,7 @@ export default function PageFrontend() {
                 <p className="text-lg">This will be coming soon.</p>
                 <p>This will be coming soon.</p>
                 <a
-                    className="group flex items-center space-x-2 rounded-lg p-2 font-montserrat no-underline focus:outline-none focus:ring-4 focus:ring-blue-300"
+                    className="group flex items-center space-x-2 rounded-lg p-2 font-title no-underline focus:outline-none focus:ring-4 focus:ring-blue-300"
                     href="https://github.com/kinkwilde/wildepoint-frontend"
                     target="_blank"
                     rel="noreferrer"

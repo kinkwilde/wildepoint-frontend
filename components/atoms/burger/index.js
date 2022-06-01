@@ -30,7 +30,7 @@ export default function AtomsBurger() {
                     onClick={mmExpand}
                     className="group flex items-center space-x-0 rounded-lg py-2 pl-3 focus:outline-none focus:ring-4 focus:ring-blue-300"
                 >
-                    <span className="font-montserrat font-light uppercase lg:group-hover:text-red-600">
+                    <span className="font-title font-light uppercase lg:group-hover:text-red-600">
                         <span className="hidden sm:inline">Open</span>{" "}
                         <span>Menu</span>
                     </span>
@@ -54,7 +54,7 @@ export default function AtomsBurger() {
                         </nav>
                         <nav className="flex space-x-1 sm:space-x-3">
                             <NextLink href="/frontend">
-                                <a className="group flex items-center space-x-2 rounded-lg p-2 font-montserrat no-underline focus:outline-none focus:ring-4 focus:ring-blue-300">
+                                <a className="group flex items-center space-x-2 rounded-lg p-2 font-title no-underline focus:outline-none focus:ring-4 focus:ring-blue-300">
                                     <FiGithub className="text-2xl lg:group-hover:text-red-600" />
                                     <span className="hidden text-sm sm:inline lg:group-hover:text-red-600">
                                         Frontend
@@ -62,7 +62,7 @@ export default function AtomsBurger() {
                                 </a>
                             </NextLink>
                             <NextLink href="/backend">
-                                <a className="group flex items-center space-x-2 rounded-lg p-2 font-montserrat no-underline focus:outline-none focus:ring-4 focus:ring-blue-300">
+                                <a className="group flex items-center space-x-2 rounded-lg p-2 font-title no-underline focus:outline-none focus:ring-4 focus:ring-blue-300">
                                     <FiDatabase className="text-2xl lg:group-hover:text-red-600" />
                                     <span className="hidden text-sm sm:inline lg:group-hover:text-red-600">
                                         Backend

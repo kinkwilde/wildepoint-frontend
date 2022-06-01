@@ -1,0 +1,30 @@
+{
+    "colors": {
+        "black": "#333333",
+        "white": "#FFFFFF",
+        "primary": [
+            {
+                "name": "Blue",
+                "hex": "#CCFF00",
+                "rgb": "9, 123, 8"
+            },
+            {
+                "name": "Red",
+                "hex": "#FFCC00",
+                "rgb": "9, 123, 8"
+            }
+        ],
+        "secondary": [
+            {
+                "name": "Grey",
+                "hex": "#EEEEEE",
+                "rgb": "9, 123, 8"
+            }
+        ]
+    },
+    "fontFamily": {
+        "body": ["Merriweather", "serif"],
+        "mono": ["Fira Code", "monospace"],
+        "title": ["Montserrat", "sans-serif"]
+    }
+}

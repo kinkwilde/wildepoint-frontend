@@ -10,7 +10,7 @@ import * as Yup from "yup";
 
 import TemplateIndex from "../components/templates/index";
 
-import SVGSpinner from "../components/svgs/spinner";
+import IconsSpinner from "../icons/spinner";
 
 export default function PageLogin({ csrfToken }) {
     const router = useRouter();
@@ -62,7 +62,7 @@ export default function PageLogin({ csrfToken }) {
                                         className="mb-4 rounded-lg bg-red-100 p-4 text-sm text-red-700"
                                         role="alert"
                                     >
-                                        <span className="font-montserrat font-bold uppercase">
+                                        <span className="font-title font-bold uppercase">
                                             Error:
                                         </span>{" "}
                                         {error}
@@ -79,11 +79,11 @@ export default function PageLogin({ csrfToken }) {
                                     />
                                     <label
                                         htmlFor="email"
-                                        className="absolute top-3 -z-10 origin-[0] -translate-y-8 scale-75 transform font-montserrat text-sm uppercase duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-blue-600"
+                                        className="absolute top-3 -z-10 origin-[0] -translate-y-8 scale-75 transform font-title text-sm uppercase duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-blue-600"
                                     >
                                         Email address
                                     </label>
-                                    <div className="mt-4 font-montserrat text-sm uppercase text-red-600">
+                                    <div className="mt-4 font-title text-sm uppercase text-red-600">
                                         <ErrorMessage name="email" />
                                     </div>
                                 </div>
@@ -98,22 +98,22 @@ export default function PageLogin({ csrfToken }) {
                                     />
                                     <label
                                         htmlFor="password"
-                                        className="absolute top-3 -z-10 origin-[0] -translate-y-8 scale-75 transform font-montserrat text-sm uppercase duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-blue-600"
+                                        className="absolute top-3 -z-10 origin-[0] -translate-y-8 scale-75 transform font-title text-sm uppercase duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-8 peer-focus:scale-75 peer-focus:text-blue-600"
                                     >
                                         Password
                                     </label>
-                                    <div className="mt-4 font-montserrat text-sm uppercase text-red-600">
+                                    <div className="mt-4 font-title text-sm uppercase text-red-600">
                                         <ErrorMessage name="password" />
                                     </div>
                                 </div>
                             </div>
                             <div className="mt-12 flex items-center justify-center">
                                 <button
-                                    className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-montserrat font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800"
+                                    className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-title font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800"
                                     type="submit"
                                 >
                                     {formik.isSubmitting ? (
-                                        <SVGSpinner />
+                                        <IconsSpinner />
                                     ) : (
                                         "Sign In"
                                     )}

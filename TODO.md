@@ -4,12 +4,4 @@ This is just a simple secondary list of things needed to do. Not including inlin
 
 ## App
 
-[ ] Look to get postcss-nested-ancestors implemented again
-[ ] Look into why prettier/eslint is conflicting with npm (yarn works fine)
-[ ] Add JSDocs?
-
-## Upload Repo
-
-## Help
-
-[ ] Ask storybook how to hide tabs per story
+[ ] Move all icons used into the 'icons' folder as SVGs
