@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 
 import useSWR from "swr";
 
-import { FiInstagram, FiTwitch, FiTwitter } from "react-icons/fi";
+import { FiInstagram, FiTwitter } from "react-icons/fi";
 
 import ReactMarkdown from "react-markdown";
 
@@ -31,7 +31,7 @@ export default function PageIndex({ fallback }) {
                 description="Description"
                 canonical="https://wildepoint.com"
                 noindex="false"
-                nofollow="falsee"
+                nofollow="false"
                 openGraph={{
                     url: "https://wildepoint.com",
                     title: "Homepage",
@@ -105,21 +105,28 @@ export default function PageIndex({ fallback }) {
                         </p>
                     </div>
                     <nav className="flex justify-center space-x-8">
-                        <NextLink href="/">
-                            <a className="text-3xl" aria-label="Instagram">
-                                <FiInstagram />
-                            </a>
-                        </NextLink>
-                        <NextLink href="/">
-                            <a className="text-3xl" aria-label="Twitch">
-                                <FiTwitch />
-                            </a>
-                        </NextLink>
-                        <NextLink href="/">
-                            <a className="text-3xl" aria-label="Twitter">
-                                <FiTwitter />
-                            </a>
-                        </NextLink>
+                        {process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM_URL && (
+                            <NextLink
+                                href={
+                                    process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM_URL
+                                }
+                            >
+                                <a className="text-3xl" aria-label="Instagram">
+                                    <FiInstagram />
+                                </a>
+                            </NextLink>
+                        )}
+                        {process.env.NEXT_PUBLIC_SOCIAL_TWITTER_URL && (
+                            <NextLink
+                                href={
+                                    process.env.NEXT_PUBLIC_SOCIAL_TWITTER_URL
+                                }
+                            >
+                                <a className="text-3xl" aria-label="Twitter">
+                                    <FiTwitter />
+                                </a>
+                            </NextLink>
+                        )}
                     </nav>
                 </div>
             </div>

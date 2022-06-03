@@ -11,7 +11,7 @@ export default function AtomsTheme() {
         return (
             <button
                 onClick={() => setTheme("light")}
-                className="flex rounded-lg p-2 focus:outline-none focus:ring-4 focus:ring-blue-focus"
+                className="focus-ring flex rounded-lg p-2"
             >
                 <FiSun className="text-6xl" />
             </button>
@@ -21,7 +21,7 @@ export default function AtomsTheme() {
     return (
         <button
             onClick={() => setTheme("dark")}
-            className="flex rounded-lg p-2 focus:outline-none focus:ring-4 focus:ring-blue-focus"
+            className="focus-ring flex rounded-lg p-2"
         >
             <FiMoon className="text-6xl" />
         </button>

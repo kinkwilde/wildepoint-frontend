@@ -21,6 +21,8 @@ import * as ga from "../helpers/gtag";
 
 import "../styles/index.css";
 
+import data from "../data/style/content.json";
+
 function NextApp({ Component, pageProps: { session, ...pageProps } }) {
     // TODO (Ask if this makes any difference with regards to it's location.)
     dayjs.extend(localizedFormat);
@@ -79,16 +81,17 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
                         description="next-Wildepoint"
                         openGraph={{
                             type: "website",
-                            site_name: "next-wildepoint",
+                            site_name: process.env.NEXT_PUBLIC_SCHEMA_SITE_NAME,
                         }}
                         additionalMetaTags={[
                             {
                                 name: "application-name",
-                                content: "WILDEPOINT",
+                                content:
+                                    process.env.NEXT_PUBLIC_SCHEMA_SITE_NAME,
                             },
                             {
                                 name: "theme-color",
-                                content: "#2563eb",
+                                content: data.colors.primary[0].hex,
                             },
                             {
                                 name: "apple-mobile-web-app-capable",

@@ -1,6 +1,6 @@
 module.exports = {
     staticDirs: ["../public"],
-    stories: ["./stories/**/*.stories.{js,jsx}"],
+    stories: ["./stories/**/*.stories.js"],
     addons: [
         "@storybook/addon-a11y",
         "@storybook/addon-essentials",

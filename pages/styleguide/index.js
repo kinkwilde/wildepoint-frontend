@@ -1,9 +1,16 @@
+import { NextSeo } from "next-seo";
+
 import SectionsColors from "./sections/colors";
 import SectionsButtons from "./sections/buttons";
 import SectionsIcons from "./sections/icons";
 import SectionTypography from "./sections/typography";
 
 import TemplatesStyle from "../../components/templates/style";
+
+const seoData = {
+    title: "Styleguide",
+    description: "Brand style guidelines and how to use them.",
+};
 
 const navigationData = [
     {
@@ -27,6 +34,16 @@ const navigationData = [
 export default function PagesStyle() {
     return (
         <>
+            <NextSeo
+                title={seoData.title}
+                description={seoData.description}
+                canonical="https://wildepoint.com/styleguide"
+                openGraph={{
+                    url: "https://wildepoint.com/styleguide",
+                    title: seoData.title,
+                    description: seoData.description,
+                }}
+            />
             <div
                 className="border-b border-gray-200 bg-gray-200 p-2 sm:p-4 md:p-6 lg:p-12 xl:p-24"
                 id="scrolltop"
