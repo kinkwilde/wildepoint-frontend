@@ -7,7 +7,7 @@ export default function AtomsColors({ data }) {
 
     return (
         <>
-            <div className="p-4 bg-white">
+            <div className="bg-white p-4">
                 <div>
                     <h4 className="mb-1 text-lg uppercase">{data.name}</h4>
                     <p className="font-firacode mb-1">

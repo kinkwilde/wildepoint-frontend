@@ -118,7 +118,10 @@ module.exports = {
                 black: styleConfig.colors.black,
                 white: styleConfig.colors.white,
                 focus: styleConfig.colors.primary[0].hex,
-                highlight: lightenColor(styleConfig.colors.primary[0].hex, 0.25),
+                highlight: lightenColor(
+                    styleConfig.colors.primary[0].hex,
+                    0.25
+                ),
                 blue: {
                     DEFAULT: styleConfig.colors.primary[0].hex,
                     hover: darkenColor(styleConfig.colors.primary[0].hex, 0.15),
@@ -131,8 +134,14 @@ module.exports = {
                 },
                 grey: {
                     DEFAULT: styleConfig.colors.secondary[0].hex,
-                    hover: darkenColor(styleConfig.colors.secondary[0].hex, 0.05),
-                    active: darkenColor(styleConfig.colors.secondary[0].hex, 0.1),
+                    hover: darkenColor(
+                        styleConfig.colors.secondary[0].hex,
+                        0.05
+                    ),
+                    active: darkenColor(
+                        styleConfig.colors.secondary[0].hex,
+                        0.1
+                    ),
                 },
             },
             zIndex: {

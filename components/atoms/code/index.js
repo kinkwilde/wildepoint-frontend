@@ -2,7 +2,7 @@ import { FiX, FiMinus, FiMaximize2 } from "react-icons/fi";
 
 function CodeWrap({ children }) {
     return (
-        <pre className="whitespace-pre-wrap font-firacode text-base">
+        <pre className="font-firacode whitespace-pre-wrap text-base">
             {children}
         </pre>
     );

@@ -90,7 +90,9 @@ export default function SectionTypography({ name, url }) {
                         </div>
                         <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-6xl font-bold uppercase leading-tight">
                             <span className="px-4">H1</span>
-                            <span className="col-span-3 px-4">{styleConfig.font.sizes.six.value}</span>
+                            <span className="col-span-3 px-4">
+                                {styleConfig.font.sizes.six.value}
+                            </span>
                             <span className="flex justify-center space-x-2 px-4">
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
@@ -98,7 +100,9 @@ export default function SectionTypography({ name, url }) {
                         </div>
                         <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-5xl font-bold uppercase leading-tight">
                             <span className="px-4">H2</span>
-                            <span className="col-span-3 px-4">{styleConfig.font.sizes.five.value}</span>
+                            <span className="col-span-3 px-4">
+                                {styleConfig.font.sizes.five.value}
+                            </span>
                             <span className="flex justify-center space-x-2 px-4">
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
@@ -106,7 +110,9 @@ export default function SectionTypography({ name, url }) {
                         </div>
                         <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-4xl font-bold uppercase leading-tight">
                             <span className="px-4">H3</span>
-                            <span className="col-span-3 px-4">{styleConfig.font.sizes.four.value}</span>
+                            <span className="col-span-3 px-4">
+                                {styleConfig.font.sizes.four.value}
+                            </span>
                             <span className="flex justify-center space-x-2 px-4">
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
@@ -114,7 +120,9 @@ export default function SectionTypography({ name, url }) {
                         </div>
                         <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-3xl font-bold uppercase leading-tight">
                             <span className="px-4">H4</span>
-                            <span className="col-span-3 px-4">{styleConfig.font.sizes.three.value}</span>
+                            <span className="col-span-3 px-4">
+                                {styleConfig.font.sizes.three.value}
+                            </span>
                             <span className="flex justify-center space-x-2 px-4">
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
@@ -122,7 +130,9 @@ export default function SectionTypography({ name, url }) {
                         </div>
                         <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-2xl font-bold uppercase leading-tight">
                             <span className="px-4">H5</span>
-                            <span className="col-span-3 px-4">{styleConfig.font.sizes.two.value}</span>
+                            <span className="col-span-3 px-4">
+                                {styleConfig.font.sizes.two.value}
+                            </span>
                             <span className="flex justify-center space-x-2 px-4">
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
@@ -130,7 +140,9 @@ export default function SectionTypography({ name, url }) {
                         </div>
                         <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-xl font-bold uppercase leading-tight">
                             <span className="px-4">H6</span>
-                            <span className="col-span-3 px-4">{styleConfig.font.sizes.xl.value}</span>
+                            <span className="col-span-3 px-4">
+                                {styleConfig.font.sizes.xl.value}
+                            </span>
                             <span className="flex justify-center space-x-2 px-4">
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
@@ -138,7 +150,9 @@ export default function SectionTypography({ name, url }) {
                         </div>
                         <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-xl uppercase leading-tight">
                             <span className="px-4">P</span>
-                            <span className="col-span-3 px-4">{styleConfig.font.sizes.base.value}</span>
+                            <span className="col-span-3 px-4">
+                                {styleConfig.font.sizes.base.value}
+                            </span>
                             <span className="flex justify-center space-x-2 px-4">
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
