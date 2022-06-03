@@ -1,5 +1,4 @@
 import ThemeAtomsLogoSplash from "../../../atoms/logo/splash";
-
 import ThemeAtomsBurger from "../../../../atoms/burger";
 
 import AtomsTheme from "../../../../atoms/theme";

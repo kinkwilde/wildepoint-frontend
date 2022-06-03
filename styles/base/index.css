@@ -16,7 +16,7 @@
     }
 
     body {
-        @apply text-black dark:text-white;
+        @apply text-black selection:bg-highlight selection:text-black dark:text-white;
     }
 
     h1,

@@ -2,10 +2,10 @@
 
 @layer components {
     .primary-button {
-        @apply bg-blue block w-full rounded-lg px-10 py-6 text-center font-title text-base font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-focus lg:hover:bg-blue-hover lg:active:bg-blue-active;
+        @apply block w-full rounded-lg bg-blue px-10 py-6 text-center font-title text-base font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-focus lg:hover:bg-blue-hover lg:active:bg-blue-active;
     }
 
     .secondary-button {
-        @apply bg-grey block w-full rounded-lg px-10 py-6 text-center font-title text-base font-bold uppercase text-black no-underline focus:outline-none focus:ring-4 focus:ring-grey-focus lg:hover:bg-grey-hover lg:active:bg-grey-active;
+        @apply block w-full rounded-lg bg-grey px-10 py-6 text-center font-title text-base font-bold uppercase text-black no-underline focus:outline-none focus:ring-4 focus:ring-focus lg:hover:bg-grey-hover lg:active:bg-grey-active;
     }
 }

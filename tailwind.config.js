@@ -1,7 +1,7 @@
 const Color = require("color");
 
-const darken = (clr, val) => Color(clr).darken(val).rgb().string();
-const rotate = (clr, val) => Color(clr).rotate(val).rgb().string();
+const darkenColor = (clr, val) => Color(clr).darken(val).hex();
+const lightenColor = (clr, val) => Color(clr).lighten(val).hex();
 
 const data = require("./data/style/content.json");
 
@@ -37,18 +37,30 @@ module.exports = {
                 transparent: "transparent",
                 black: data.colors.black,
                 white: data.colors.white,
+                focus: data.colors.primary[0].hex,
+                highlight: lightenColor(data.colors.primary[0].hex, 0.25),
                 blue: {
                     DEFAULT: data.colors.primary[0].hex,
-                    hover: darken(data.colors.primary[0].hex, 0.15),
-                    active: darken(data.colors.primary[0].hex, 0.3),
-                    focus: rotate(data.colors.primary[0].hex, 90),
+                    hover: darkenColor(data.colors.primary[0].hex, 0.15),
+                    active: darkenColor(data.colors.primary[0].hex, 0.3),
+                },
+                red: {
+                    DEFAULT: data.colors.primary[1].hex,
+                    hover: darkenColor(data.colors.primary[1].hex, 0.15),
+                    active: darkenColor(data.colors.primary[1].hex, 0.3),
                 },
                 grey: {
                     DEFAULT: data.colors.secondary[0].hex,
-                    hover: darken(data.colors.secondary[0].hex, 0.05),
-                    active: darken(data.colors.secondary[0].hex, 0.1),
-                    focus: rotate(data.colors.secondary[0].hex, 90),
+                    hover: darkenColor(data.colors.secondary[0].hex, 0.05),
+                    active: darkenColor(data.colors.secondary[0].hex, 0.1),
                 },
+            },
+            zIndex: {
+                5: "5",
+                15: "15",
+                25: "25",
+                35: "35",
+                45: "45",
             },
         },
     },

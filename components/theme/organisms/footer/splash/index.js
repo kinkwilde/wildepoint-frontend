@@ -11,6 +11,9 @@ export default function ThemeOrganismsFooterSplash() {
                 </p>
             </div>
             <div className="flex flex-col space-y-4 text-center sm:flex-row sm:space-y-0 sm:space-x-4">
+                <NextLink href="/styleguide">
+                    <a className="font-title text-sm uppercase">Styleguide</a>
+                </NextLink>
                 <NextLink href="/terms">
                     <a className="font-title text-sm uppercase">
                         Terms &amp; Conditions
