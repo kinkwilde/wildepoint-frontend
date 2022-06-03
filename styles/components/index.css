@@ -1,6 +1,10 @@
 @tailwind components;
 
 @layer components {
+    .intro {
+        @apply text-lg;
+    }
+
     .primary-button {
         @apply block w-full rounded-lg bg-blue px-10 py-6 text-center font-title text-base font-bold uppercase text-white no-underline lg:hover:bg-blue-hover lg:active:bg-blue-active;
         @apply focus:outline-none focus:ring-4 focus:ring-focus;

@@ -2,10 +2,7 @@ import { useState } from "react";
 
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
-import IconsSpinner from "../../../../icons/spinner";
-import IconsSkribbl from "../../../../icons/skribbl";
-
-export default function SectionIcons({ name, url }) {
+export default function SectionLogo({ name, url }) {
     const [isActive, setActive] = useState(false);
 
     return (
@@ -24,10 +21,7 @@ export default function SectionIcons({ name, url }) {
             </button>
             {isActive && (
                 <div className="grid p-2 sm:p-4 md:p-6 lg:p-12 xl:p-24">
-                    <div className="grid grid-cols-8">
-                        <IconsSpinner />
-                        <IconsSkribbl />
-                    </div>
+                    <p>Logo Useage</p>
                 </div>
             )}
         </section>

@@ -21,7 +21,7 @@ import * as ga from "../helpers/gtag";
 
 import "../styles/index.css";
 
-import data from "../data/style/content.json";
+import styleConfig from "../data/style/config.json";
 
 function NextApp({ Component, pageProps: { session, ...pageProps } }) {
     // TODO (Ask if this makes any difference with regards to it's location.)
@@ -91,7 +91,7 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
                             },
                             {
                                 name: "theme-color",
-                                content: data.colors.primary[0].hex,
+                                content: styleConfig.colors.primary[0].hex,
                             },
                             {
                                 name: "apple-mobile-web-app-capable",

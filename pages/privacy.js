@@ -3,23 +3,24 @@ import TemplateIndex from "../components/templates/index";
 export default function PagePrivacy() {
     return (
         <>
-            <div className="mx-auto mb-12 max-w-prose text-center">
-                <h2>Privacy Policy</h2>
-                <p>
-                    Your privacy is important to us. It is Wildepoint&#39;s
-                    policy to respect your privacy and comply with any
-                    applicable law and regulation regarding any personal
-                    information we may collect about you, including across our
-                    website,{" "}
-                    <a href="https://wildepoint.com/">
-                        https://wildepoint.com/
-                    </a>
-                    , and other sites we own and operate.{" "}
-                </p>
-                <p>
-                    This policy is effective as of 3 June 2022 and was last
-                    updated on 3 June 2022.{" "}
-                </p>
+            <div className="mx-auto mb-12 max-w-prose">
+                <div className="mb-24 text-center">
+                    <h2>Privacy Policy</h2>
+                    <p className="mb-12">
+                        Your privacy is important to us. It is Wildepoint&#39;s
+                        policy to respect your privacy and comply with any
+                        applicable law and regulation regarding any personal
+                        information we may collect about you, including across
+                        our website,{" "}
+                        <a href="https://wildepoint.com/">
+                            https://wildepoint.com/
+                        </a>
+                        , and other sites we own and operate.{" "}
+                    </p>
+                    <p className="mb-0 font-bold">
+                        This policy was last updated on 3 June 2022.
+                    </p>
+                </div>
                 <h3>Information We Collect</h3>
                 <p>
                     Information we collect includes both information you

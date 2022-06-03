@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
-import data from "../../../../data/style/content.json";
+import styleConfig from "../../../../data/style/config.json";
 
 export default function SectionTypography({ name, url }) {
     const [isActive, setActive] = useState(false);
@@ -27,7 +27,7 @@ export default function SectionTypography({ name, url }) {
                         <div className="mb-8 border-b border-gray-200 pb-8">
                             <h2 className="mb-4 font-title text-8xl">Title</h2>
                             <p className="mb-4 font-title text-lg font-bold">
-                                {data.fontFamily.title.map((item) => (
+                                {styleConfig.font.family.title.map((item) => (
                                     <span
                                         key={item}
                                         className="after:content-[',_'] last:after:content-none"
@@ -46,7 +46,7 @@ export default function SectionTypography({ name, url }) {
                         <div className="mb-8 border-b border-gray-200 pb-8">
                             <h2 className="mb-4 font-body text-8xl">Body</h2>
                             <p className="mb-4 font-body text-lg font-bold">
-                                {data.fontFamily.body.map((item) => (
+                                {styleConfig.font.family.body.map((item) => (
                                     <span
                                         key={item}
                                         className="after:content-[',_'] last:after:content-none"
@@ -65,7 +65,7 @@ export default function SectionTypography({ name, url }) {
                         <div>
                             <h2 className="mb-4 font-mono text-8xl">Mono</h2>
                             <p className="mb-4 font-mono text-lg font-bold">
-                                {data.fontFamily.mono.map((item) => (
+                                {styleConfig.font.family.mono.map((item) => (
                                     <span
                                         key={item}
                                         className="after:content-[',_'] last:after:content-none"
@@ -89,17 +89,57 @@ export default function SectionTypography({ name, url }) {
                             <span className="p-4 text-center">Colors</span>
                         </div>
                         <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-6xl font-bold uppercase leading-tight">
-                            <span>H1</span>
-                            <span className="col-span-3">text-6xl</span>
-                            <span className="flex justify-center space-x-2">
+                            <span className="px-4">H1</span>
+                            <span className="col-span-3 px-4">{styleConfig.font.sizes.six.value}</span>
+                            <span className="flex justify-center space-x-2 px-4">
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
                             </span>
                         </div>
                         <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-5xl font-bold uppercase leading-tight">
-                            <span>H2</span>
-                            <span className="col-span-3">text-5xl</span>
-                            <span className="flex justify-center space-x-2">
+                            <span className="px-4">H2</span>
+                            <span className="col-span-3 px-4">{styleConfig.font.sizes.five.value}</span>
+                            <span className="flex justify-center space-x-2 px-4">
+                                <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
+                                <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-4xl font-bold uppercase leading-tight">
+                            <span className="px-4">H3</span>
+                            <span className="col-span-3 px-4">{styleConfig.font.sizes.four.value}</span>
+                            <span className="flex justify-center space-x-2 px-4">
+                                <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
+                                <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-3xl font-bold uppercase leading-tight">
+                            <span className="px-4">H4</span>
+                            <span className="col-span-3 px-4">{styleConfig.font.sizes.three.value}</span>
+                            <span className="flex justify-center space-x-2 px-4">
+                                <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
+                                <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-2xl font-bold uppercase leading-tight">
+                            <span className="px-4">H5</span>
+                            <span className="col-span-3 px-4">{styleConfig.font.sizes.two.value}</span>
+                            <span className="flex justify-center space-x-2 px-4">
+                                <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
+                                <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-xl font-bold uppercase leading-tight">
+                            <span className="px-4">H6</span>
+                            <span className="col-span-3 px-4">{styleConfig.font.sizes.xl.value}</span>
+                            <span className="flex justify-center space-x-2 px-4">
+                                <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
+                                <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-5 items-center gap-4 py-4 font-title text-xl uppercase leading-tight">
+                            <span className="px-4">P</span>
+                            <span className="col-span-3 px-4">{styleConfig.font.sizes.base.value}</span>
+                            <span className="flex justify-center space-x-2 px-4">
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-black"></span>
                                 <span className="block h-5 w-5 rounded-full border border-gray-200 bg-white"></span>
                             </span>

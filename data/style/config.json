@@ -1,0 +1,83 @@
+{
+    "colors": {
+        "black": "#333333",
+        "white": "#FFFFFF",
+        "primary": [
+            {
+                "name": "Blue",
+                "hex": "#89CFF0"
+            },
+            {
+                "name": "Red",
+                "hex": "#800000"
+            }
+        ],
+        "secondary": [
+            {
+                "name": "Grey",
+                "hex": "#EEEEEE"
+            }
+        ]
+    },
+    "font": {
+        "family": {
+            "body": ["Merriweather", "serif"],
+            "mono": ["Fira Code", "monospace"],
+            "title": ["Montserrat", "sans-serif"]
+        },
+        "sizes": {
+            "xs": {
+                "value": "0.75rem",
+                "lineHeight": "1rem"
+            },
+            "sm": {
+                "value": "0.875rem",
+                "lineHeight": "1.25rem"
+            },
+            "base": {
+                "value": "1rem",
+                "lineHeight": "1.5rem"
+            },
+            "lg": {
+                "value": "1.125rem",
+                "lineHeight": "1.75rem"
+            },
+            "xl": {
+                "value": "1.25rem",
+                "lineHeight": "1.75rem"
+            },
+            "two": {
+                "value": "1.5rem",
+                "lineHeight": "2rem"
+            },
+            "three": {
+                "value": "1.875rem",
+                "lineHeight": "2.25rem"
+            },
+            "four": {
+                "value": "2.25rem",
+                "lineHeight": "2.5rem"
+            },
+            "five": {
+                "value": "3rem",
+                "lineHeight": "1"
+            },
+            "six": {
+                "value": "3.75rem",
+                "lineHeight": "1"
+            },
+            "seven": {
+                "value": "4.5rem",
+                "lineHeight": "1"
+            },
+            "eight": {
+                "value": "6rem",
+                "lineHeight": "1"
+            },
+            "nine": {
+                "value": "8rem",
+                "lineHeight": "1"
+            }
+        }
+    }
+}

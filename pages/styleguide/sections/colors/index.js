@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
-import data from "../../../../data/style/content.json";
+import styleConfig from "../../../../data/style/config.json";
 
 import AtomsColor from "../../../../components/atoms/colors";
 
@@ -33,7 +33,7 @@ export default function SectionColors({ name, url }) {
                             </p>
                         </div>
                         <ul className="mb-0 grid list-none grid-cols-1 gap-4 pl-0 lg:grid-cols-2">
-                            {data.colors.primary.map((item) => (
+                            {styleConfig.colors.primary.map((item) => (
                                 <li key={item.name}>
                                     <AtomsColor data={item} />
                                 </li>
@@ -48,7 +48,7 @@ export default function SectionColors({ name, url }) {
                             </p>
                         </div>
                         <ul className="mb-0 grid list-none grid-cols-1 gap-4 pl-0 lg:grid-cols-2">
-                            {data.colors.secondary.map((item) => (
+                            {styleConfig.colors.secondary.map((item) => (
                                 <li key={item.name}>
                                     <AtomsColor data={item} />
                                 </li>

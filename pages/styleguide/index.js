@@ -1,8 +1,9 @@
 import { NextSeo } from "next-seo";
 
-import SectionsColors from "./sections/colors";
 import SectionsButtons from "./sections/buttons";
+import SectionsColors from "./sections/colors";
 import SectionsIcons from "./sections/icons";
+import SectionsLogo from "./sections/logo";
 import SectionTypography from "./sections/typography";
 
 import TemplatesStyle from "../../components/templates/style";
@@ -13,6 +14,10 @@ const seoData = {
 };
 
 const navigationData = [
+    {
+        name: "Logo",
+        url: "logo",
+    },
     {
         name: "Colors",
         url: "colors",
@@ -45,7 +50,7 @@ export default function PagesStyle() {
                 }}
             />
             <div
-                className="border-b border-gray-200 bg-gray-200 p-2 sm:p-4 md:p-6 lg:p-12 xl:p-24"
+                className="border-b border-gray-200 bg-white p-2 sm:p-4 md:p-6 lg:p-12 xl:p-24"
                 id="scrolltop"
             >
                 <h1>Styleguide</h1>
@@ -53,28 +58,25 @@ export default function PagesStyle() {
                     Intro text to the styleguide and purpose.
                 </p>
             </div>
-            <section className="border-t border-b border-gray-200" id="logo">
-                <h4>Logo Usage</h4>
-                <p>
-                    Sizing, colors and placement. Includes what to do and what
-                    not to do.
-                </p>
-            </section>
-            <SectionsColors
+            <SectionsLogo
                 name={navigationData[0].name}
                 url={navigationData[0].url}
             />
-            <SectionTypography
+            <SectionsColors
                 name={navigationData[1].name}
                 url={navigationData[1].url}
             />
-            <SectionsButtons
+            <SectionTypography
                 name={navigationData[2].name}
                 url={navigationData[2].url}
             />
-            <SectionsIcons
+            <SectionsButtons
                 name={navigationData[3].name}
                 url={navigationData[3].url}
+            />
+            <SectionsIcons
+                name={navigationData[4].name}
+                url={navigationData[4].url}
             />
         </>
     );

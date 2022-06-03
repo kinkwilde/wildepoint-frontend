@@ -9,7 +9,7 @@ export default function TemplatesStyle({ children, navigation }) {
 
     return (
         <div className="relative grid h-screen grid-cols-[auto_1fr]">
-            <div className="h-full border-r border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
+            <div className="h-full border-r border-gray-200 bg-blue dark:border-gray-700 dark:bg-gray-900">
                 <div className="w-64">
                     <div className="flex min-h-screen flex-col p-2 sm:p-4 md:p-6 lg:p-12 xl:p-24">
                         <div className="grow">

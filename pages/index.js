@@ -98,6 +98,32 @@ export default function PageIndex({ fallback }) {
             <div className="my-12 lg:my-24">
                 <div className="mx-auto max-w-prose">
                     <div className="mb-8 text-center">
+                        <h4 className="mb-4 text-center uppercase">
+                            This is where hell starts
+                        </h4>
+                        <p>Make your own choice in life.</p>
+                    </div>
+                    <div className="grid gap-y-4 sm:grid-cols-2 sm:gap-6 sm:gap-y-0 md:gap-8">
+                        {!userSession && (
+                            <NextLink href="/request">
+                                <a
+                                    className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-title font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800"
+                                    aria-label="Request Access"
+                                >
+                                    Request Access
+                                </a>
+                            </NextLink>
+                        )}
+                        <AtomsLogin />
+                    </div>
+                    <div className="mt-12">
+                        <AtomsAccordion />
+                    </div>
+                </div>
+            </div>
+            <div className="my-12 lg:my-24">
+                <div className="mx-auto max-w-prose">
+                    <div className="mb-8 text-center">
                         <h3 className="uppercase">Find Me On Social Media</h3>
                         <p>
                             I have a very limited social media presence, and the
@@ -128,32 +154,6 @@ export default function PageIndex({ fallback }) {
                             </NextLink>
                         )}
                     </nav>
-                </div>
-            </div>
-            <div className="my-12 lg:my-24">
-                <div className="mx-auto max-w-prose">
-                    <div className="mb-8 text-center">
-                        <h4 className="mb-4 text-center uppercase">
-                            This is where hell starts
-                        </h4>
-                        <p>Make your own choice in life.</p>
-                    </div>
-                    <div className="grid gap-y-4 sm:grid-cols-2 sm:gap-6 sm:gap-y-0 md:gap-8">
-                        {!userSession && (
-                            <NextLink href="/request">
-                                <a
-                                    className="block rounded-lg border border-blue-800 bg-blue-600 px-10 py-6 text-center font-title font-bold uppercase text-white no-underline focus:outline-none focus:ring-4 focus:ring-blue-300 lg:hover:bg-blue-800"
-                                    aria-label="Request Access"
-                                >
-                                    Request Access
-                                </a>
-                            </NextLink>
-                        )}
-                        <AtomsLogin />
-                    </div>
-                    <div className="mt-12">
-                        <AtomsAccordion />
-                    </div>
                 </div>
             </div>
             {strapiSingle && (

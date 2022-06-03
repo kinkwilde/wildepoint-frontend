@@ -3,24 +3,25 @@ import TemplateIndex from "../components/templates/index";
 export default function PageTerms() {
     return (
         <>
-            <div className="mx-auto mb-12 max-w-prose text-center">
-                <h2>Terms and Conditions</h2>
-
-                <p>Welcome to Wildepoint!</p>
-
-                <p>
-                    These terms and conditions outline the rules and regulations
-                    for the use of Wildepoint's Website, located at
-                    https://wildepoint.com/.
-                </p>
-
+            <div className="mx-auto mb-12 max-w-prose">
+                <div className="mb-24 text-center">
+                    <h2>Terms and Conditions</h2>
+                    <p className="mb-12">
+                        These terms and conditions outline the rules and
+                        regulations for the use of Wildepoint's Website, located
+                        at https://wildepoint.com/.
+                    </p>
+                    <p className="mb-0 font-bold">
+                        This policy was last updated on 3 June 2022.
+                    </p>
+                </div>
+                <h3>Welcome to Wildepoint!</h3>
                 <p>
                     By accessing this website we assume you accept these terms
                     and conditions. Do not continue to use Wildepoint if you do
                     not agree to take all of the terms and conditions stated on
                     this page.
                 </p>
-
                 <p>
                     The following terminology applies to these Terms and
                     Conditions, Privacy Statement and Disclaimer Notice and all
@@ -39,15 +40,12 @@ export default function PageTerms() {
                     plural, capitalization and/or he/she or they, are taken as
                     interchangeable and therefore as referring to same.
                 </p>
-
                 <h3>Cookies</h3>
-
                 <p>
                     We employ the use of cookies. By accessing Wildepoint, you
                     agreed to use cookies in agreement with the Wildepoint's
                     Privacy Policy.{" "}
                 </p>
-
                 <p>
                     Most interactive websites use cookies to let us retrieve the
                     user’s details for each visit. Cookies are used by our
@@ -55,9 +53,7 @@ export default function PageTerms() {
                     it easier for people visiting our website. Some of our
                     affiliate/advertising partners may also use cookies.
                 </p>
-
                 <h3>License</h3>
-
                 <p>
                     Unless otherwise stated, Wildepoint and/or its licensors own
                     the intellectual property rights for all material on
@@ -66,7 +62,6 @@ export default function PageTerms() {
                     use subjected to restrictions set in these terms and
                     conditions.
                 </p>
-
                 <p>You must not:</p>
                 <ul>
                     <li>Republish material from Wildepoint</li>
@@ -76,7 +71,6 @@ export default function PageTerms() {
                     </li>
                     <li>Redistribute content from Wildepoint</li>
                 </ul>
-
                 <p>
                     This Agreement shall begin on the date hereof. Our Terms and
                     Conditions were created with the help of the{" "}
@@ -85,7 +79,6 @@ export default function PageTerms() {
                     </a>
                     .
                 </p>
-
                 <p>
                     Parts of this website offer an opportunity for users to post
                     and exchange opinions and information in certain areas of
@@ -100,15 +93,12 @@ export default function PageTerms() {
                     result of any use of and/or posting of and/or appearance of
                     the Comments on this website.
                 </p>
-
                 <p>
                     Wildepoint reserves the right to monitor all Comments and to
                     remove any Comments which can be considered inappropriate,
                     offensive or causes breach of these Terms and Conditions.
                 </p>
-
                 <p>You warrant and represent that:</p>
-
                 <ul>
                     <li>
                         You are entitled to post the Comments on our website and
@@ -130,14 +120,12 @@ export default function PageTerms() {
                         unlawful activity.
                     </li>
                 </ul>
-
                 <p>
                     You hereby grant Wildepoint a non-exclusive license to use,
                     reproduce, edit and authorize others to use, reproduce and
                     edit any of your Comments in any and all forms, formats or
                     media.
                 </p>
-
                 <h3>Hyperlinking to our Content</h3>
                 <p>
                     The following organizations may link to our Website without
