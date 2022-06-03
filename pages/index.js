@@ -30,8 +30,6 @@ export default function PageIndex({ fallback }) {
                 title="Homepage"
                 description="Description"
                 canonical="https://wildepoint.com"
-                noindex="false"
-                nofollow="false"
                 openGraph={{
                     url: "https://wildepoint.com",
                     title: "Homepage",

@@ -77,8 +77,8 @@ function NextApp({ Component, pageProps: { session, ...pageProps } }) {
                     </NextHead>
 
                     <DefaultSeo
-                        title="next-wildepoint"
-                        description="next-Wildepoint"
+                        title="next-app"
+                        description="next-app"
                         openGraph={{
                             type: "website",
                             site_name: process.env.NEXT_PUBLIC_SCHEMA_SITE_NAME,
