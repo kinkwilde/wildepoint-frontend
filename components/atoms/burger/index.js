@@ -38,7 +38,7 @@ export default function AtomsBurger() {
                 </button>
             </div>
             {isExpanded && (
-                <div className="fixed top-0 left-0 z-30 flex h-full w-full items-center justify-center bg-red-500">
+                <div className="fixed top-0 left-0 z-40 flex h-full w-full items-center justify-center bg-red-500">
                     <div>
                         <button onClick={mmClose} className="p-3">
                             <FiX className="text-3xl" />
@@ -48,6 +48,7 @@ export default function AtomsBurger() {
                             <NextLink href="/">
                                 <a>Homepage</a>
                             </NextLink>
+                            {/* Add in logged in wrapper and point to sub-site index */}
                             <NextLink href="/blog">
                                 <a>Blog</a>
                             </NextLink>

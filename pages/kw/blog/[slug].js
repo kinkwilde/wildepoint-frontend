@@ -2,9 +2,9 @@ import { getSession } from "next-auth/react";
 
 import useSWR from "swr";
 
-import TemplateDefault from "../../components/templates/default";
+import TemplateDefault from "../../../components/templates/default";
 
-import AtomsCode from "../../components/atoms/code";
+import AtomsCode from "../../../components/atoms/code";
 
 export default function PageIndex({ slug, fallback }) {
     const { data: strapiCollection } = useSWR(

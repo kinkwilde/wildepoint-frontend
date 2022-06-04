@@ -5,11 +5,11 @@
         "primary": [
             {
                 "name": "Blue",
-                "hex": "#89CFF0"
+                "hex": "#d946ef"
             },
             {
-                "name": "Red",
-                "hex": "#800000"
+                "name": "Purple",
+                "hex": "#89CFF0"
             }
         ],
         "secondary": [
