@@ -1,15 +1,5 @@
-/*
-
-* Stylesheet (CSS)
-- version (0.0.1)
-
-"styles/index.css"
-
-*/
-
 @tailwind base;
 
-/* custom base styles */
 @layer base {
     html {
         @apply font-body;
